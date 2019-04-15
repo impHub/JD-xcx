@@ -1,0 +1,36 @@
+<!-- hidden隐藏 为ture就隐藏 catchtap防止事件冒泡的点击事件 -->
+<view class="popupDom" data-target="self" catchtap="hideBaitiaoView" hidden='{{hideBaitiao}}'>
+    <view class="pop_main">
+    <!-- 头部 -->
+        <view class="pop_header">
+            打白条
+            <text data-target="self" catchtap="hideBaitiaoView">x</text>
+        </view>
+        <!-- 中间 -->
+        <view class="pop_body">
+
+        <!--   遍历数据 -->
+            <block wx:for="{{baitiao}}" wx:key="{{index}}">
+                <!-- <text>index{{index}}</text> -->
+                <view class="section_item" data-index='{{index}}' bindtap='selectItem'>
+                    <!-- 选中就会打钩变红的图片 -->
+                    <image wx:if="{{item.select}}"
+                    src="/image/selected.png" />
+                    <image wx:else src="/image/unselect.png" />
+                    
+                    <!-- 三期 六期等数据 -->
+                    <view class="detail">
+                        <text class="dec">{{item.desc}}</text>
+                        <text class="tip">{{item.tip}}</text>
+                    </view>
+                </view>
+            </block>
+
+        </view>
+
+        <!-- 尾部 -->
+        <view class="pop_btn" wx:for="{{baitiao}}" wx:key="{{index}}">
+            <button bindtap='liou' data-item="{{index}}">立即打白条</button>
+        </view>
+    </view>
+</view>

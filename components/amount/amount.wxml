@@ -1,0 +1,8 @@
+<view class="num_wrap" catchtap="app">
+    <button class="btn" catchtap="subtract">-</button>
+                <!-- 数据双向绑定 -->
+    <!--关于bindinput这个双向数据绑定，当点击+或—来改变里面的数字时并不会触发这个函数事件  -->
+    <!-- 只有手动更改才能触发（很鸡肋） -->
+    <input type="number" disabled='true' value="{{count}}" bindinput="inputChangHandle"/>
+    <button class="btn" catchtap="add">+</button>
+</view>

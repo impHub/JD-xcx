@@ -1,0 +1,36 @@
+<view class="popupDom" hidden="{{hideBuy}}" data-item='close' catchtap="hideBaitiaoView">
+    <view class="pop_main">
+        <view class="buy_header">
+        <!--   图片 -->
+            <view class="head_img">
+                <image src="{{partData.loopImgUrl[0]}}" />
+            </view>
+        <!--  -->
+        <view class="info">
+            <!-- 价格  数量-->
+            <text class="price">${{partData.price}}</text>
+            <text class="selcount">已选{{partData.count}}件</text>
+        </view>
+        <!-- 关闭按钮 -->
+        <text data-item='close' catchtap="hideBaitiaoView">x</text>
+        </view>
+            <!--  -->
+            <view class="buy_body">
+                <text>数量</text>
+                
+                <view class="amount">
+
+                    <amount 
+                    bind:inputChangHandle="getcount" 
+                    count="{{partData.count}}"></amount>
+                    <!-- {{partData.count}} -->
+
+                    
+                </view>
+            </view>
+            <!--  -->
+                <view class="pop_btn">
+                    <button catchtap="buy">加入购物车</button>
+                </view>
+    </view>
+</view>

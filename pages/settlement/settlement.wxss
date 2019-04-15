@@ -1,0 +1,5 @@
+/* pages/settlement/settlement.wxss */
+.p{
+    margin-bottom: 20px;
+    /* border: 2px solid; */
+}

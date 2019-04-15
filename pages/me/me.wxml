@@ -1,0 +1,11 @@
+<view class="container">
+    <view class="userinfo">
+<!-- canIUser是做兼容处理查看这个api能不能使用  bindgetuserinfo用户信息授权 用来获取用户信息-->
+        <button wx:if="{{!hasUserInfo && canIUse}}"   
+        open-type="getUserInfo" bindgetuserinfo="getUserInfo" >获取头像昵称</button>
+        <block wx:else >
+            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover" />
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+    </view>
+</view>

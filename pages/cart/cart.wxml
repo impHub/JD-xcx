@@ -1,0 +1,72 @@
+<view class="cart">
+    <view class="empty_wrap" wx:if="{{cartArray.length == 0}}">
+        <image class="empty_icon" src="/image/shop_cart.png" />
+        <text class="empty_txt">购物车空空如也，去逛逛把~</text>
+    </view>
+    <!-- 有内容是购物车信息         -->
+    <view class="section" wx:else>
+
+        <!-- 遍历 -->
+        <block wx:for="{{cartArray}}" wx:key="{{index}}">
+                                <!-- 改变class来实现滑动 -->
+            <view data-index='{{index}}' class="good_list {{item.isTouchMove ? 'touch-move-active': ''}}" 
+                    bindtouchstart='touchstart'
+                    bindtouchmove="touchmove"
+            >
+                <view class="content">
+                    <view class="select_icon" >
+                        <image wx:if="{{item.select}}" class="icon" 
+                        src="/image/selected.png" 
+                        bindtap="active" data-id="{{item.id}}" data-index="{{index}}"  />
+                         <image wx:else class="icon" 
+                        src="/image/unselect.png" 
+                        bindtap="active" data-id="{{item.id}}" data-index="{{index}}"  />
+                    </view>
+                    <view class="goods" bindtap="addDeltail" data-index='{{index}}'>
+                        <image class="good_img" src="{{item.loopImgUrl[0]}}"/>
+                        <view class="good_info">
+                            <view class="good_title">
+                                <text>{{item.title}}</text>
+                            </view>
+                            <view class="good_price">
+                                <text class="price">{{item.price}}</text>
+
+                                <!-- 商品数量 -->
+                                <!-- 传递缓存里的数量 -->
+                                <amount 
+                                data-index = "{{index}}"
+                                count="{{item.total}}"
+                                bind:inputChangHandle="getCount"
+                                ></amount>
+
+                            </view>
+                        </view>
+                    </view>
+                   
+                   
+                </view>
+                <!--删除  -->
+                   <view data-index='{{index}}' bindtap="delete"  class="del">删除</view>
+            </view>
+        </block>
+        <!-- 结算样式 -->
+        <view class="fixBar">
+            <view class="select_all" catchtap='selectAll'>
+            <!-- 是否全选勾选 -->
+                <image wx:if="{{selectAll}}" class="icon"
+                src="/image/selected.png"  />
+                 <image wx:else class="icon" src="/image/unselect.png"  />
+                 <text>全选</text>
+            </view>
+            <!--总价 -->
+            <view class="total">
+                <text>合计</text>
+                <text class="money">￥{{totalMoney}}</text>
+            </view>
+            <!-- 结算按钮 -->
+            <view class="btn_amount">
+                <button bindtap="Settlement">去结算({{totalCount}})</button>
+            </view>
+        </view>
+    </view>
+</view>
