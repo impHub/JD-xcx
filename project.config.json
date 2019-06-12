@@ -9,16 +9,19 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.1",
-	"appid": "wx6eeb04b248b4152b",
+	"appid": "wx3fd863d5ad69d68e",
 	"projectname": "JD-xcx",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

@@ -8,7 +8,7 @@ Page({
   data: { 
       navLeftItems:[],
       navRightItems:[],
-      curIndex:0
+      curIndex:0 //index关联 左边的class样式 右边渲染的数组 arr[index]
       
   },
   // 自定义函数
@@ -50,6 +50,7 @@ Page({
             navLeftItems:res.data.navLeftItems,
             navRightItems:res.data.navRightItems
           })
+          console.log(this.data.navLeftItems,'----',this.data.navRightItems)
           // 加载完成关闭动画
           wx.hideLoading();
         }

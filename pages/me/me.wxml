@@ -1,5 +1,6 @@
 <view class="container">
     <view class="userinfo">
+     <!-- <button hover-class='none' open-type="getUserInfo" bindgetuserinfo="getUserInfoFunction">立即授权</button> -->
 <!-- canIUser是做兼容处理查看这个api能不能使用  bindgetuserinfo用户信息授权 用来获取用户信息-->
         <button wx:if="{{!hasUserInfo && canIUse}}"   
         open-type="getUserInfo" bindgetuserinfo="getUserInfo" >获取头像昵称</button>
@@ -7,5 +8,13 @@
             <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover" />
             <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         </block>
+        
+         <button bindtap="zhuanfa">转发</button>
+     
+     <button class='zan-btn zan-btn--mini zan-btn--danger zan-btn--plain' open-type='share'>
+            <!-- <image src='../../images/icon/share.png' class='share'></image> -->
+            <text class="fff">分享</text>
+          </button>
+          <button hover-class='none' open-type="getUserInfo" bindgetuserinfo="getUserInfoFunction">立即授权</button>
     </view>
 </view>

@@ -42,6 +42,7 @@ Page({
 
         //需要用箭头函数不然找不到this
         success : res=>{
+          console.log(res.data)
           
           // console.log(res.data.quicks,'请求成');
           // console.log(this,'hah');
@@ -58,6 +59,9 @@ Page({
     })
   },
   add(){
+    // wx.request({
+    //   url
+    // })
     wx.switchTab({
       url:"/pages/category/category"
     })

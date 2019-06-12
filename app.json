@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/home/home",
     "pages/category/category",
     "pages/cart/cart",
@@ -8,11 +8,11 @@
     "pages/detail/detail",
     "pages/settlement/settlement"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fbf9fe",
     "navigationBarTitleText": "京东商城",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle": "black",
     "backgroundColor": "#fbf9fe "
   },
   "tabBar": {
@@ -20,32 +20,37 @@
     "selectedColor": "#e93b3d",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
-    "list": [{
-      "pagePath": "pages/home/home",
-      "text": "首页",
-      "iconPath":"image/home.png",
-      "selectedIconPath": "image/home-hl.png"
-     
-    },
-    {
-      "pagePath": "pages/category/category",
-      "text": "分类",
-      "iconPath": "image/category.png",
-      "selectedIconPath": "image/category-hl.png"
-     
-    },
-    {
-      "pagePath": "pages/cart/cart",
-      "text": "购物车",
-      "iconPath": "image/cart.png",
-      "selectedIconPath": "image/cart-hl.png"
-    },
-    {
-      "pagePath": "pages/me/me",
-      "text": "我的",
-      "iconPath": "image/me.png",
-      "selectedIconPath": "image/me-hl.png"
-    }
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "image/home.png",
+        "selectedIconPath": "image/home-hl.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "image/category.png",
+        "selectedIconPath": "image/category-hl.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "image/cart.png",
+        "selectedIconPath": "image/cart-hl.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "image/me.png",
+        "selectedIconPath": "image/me-hl.png"
+      }
     ]
-  }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
 }

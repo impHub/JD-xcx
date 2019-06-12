@@ -138,6 +138,8 @@
   .page-column text{
     font-size:32rpx;
     color:#FF0000; 
+    /* color: #888888; */
+    /* color: #f40; */
     margin-top:10rpx;
   }
   .page-row .page_img{

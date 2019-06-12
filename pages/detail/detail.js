@@ -1,7 +1,6 @@
 const interfaces = require('../../utils/urlconfig')
 // pages/detail/detail.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -18,7 +17,6 @@ Page({
     hideBuy:true,
     badgeCount:0
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
