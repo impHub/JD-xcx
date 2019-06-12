@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: { 
+      commodity:[],
       navLeftItems:[],
       navRightItems:[],
       curIndex:0 //index关联 左边的class样式 右边渲染的数组 arr[index]
@@ -45,12 +46,17 @@ Page({
           "content-type":"application/json"
         },
         success : res=>{
+          let data=  res.data.navRightItems[0];
+         
+          console.log(data[0].desc)
           // console.log(res.data.navRightItems,'cat')
           this.setData({
             navLeftItems:res.data.navLeftItems,
-            navRightItems:res.data.navRightItems
+            navRightItems:res.data.navRightItems,
+            commodity:data[0].desc
           })
-          console.log(this.data.navLeftItems,'----',this.data.navRightItems)
+        
+        
           // 加载完成关闭动画
           wx.hideLoading();
         }

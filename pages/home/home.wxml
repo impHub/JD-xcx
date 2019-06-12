@@ -56,7 +56,30 @@
     >
     </image>
     <view class="theme_more">
-      <text >更多秒杀</text>
+      <!-- <text >更多秒杀</text> -->
+      <image src="../../image/arrowright.png" mode="aspectFill" />
+    </view>
+  </view>
+    <scroll-view class="theme_scroll" scroll-x="{{true}}">
+      <block wx:for-items="{{quicks}}" wx:key="index">
+        <view style="display:inline-block;">
+          <view class="page-column">
+            <image src="{{item.image}}" mode="aspectFill"/>
+            <text>{{item.price}}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+    <!-- 掌上秒杀 -->
+  <view class='page-margin'>
+  <view class='page-row'>
+    <image class='theme_img' src="../../image/bej.png"
+    mode="aspectFill"
+    >
+    </image>
+    <view class="theme_more">
+      <!-- <text >更多秒杀</text> -->
       <image src="../../image/arrowright.png" mode="aspectFill" />
     </view>
   </view>
@@ -72,11 +95,11 @@
     </scroll-view>
   </view>
     <!-- 会场分类 -->
-    <block wx:for="{{pageRow}}" wx:for-item="page" wx:key="index">
+    <!-- <block wx:for="{{pageRow}}" wx:for-item="page" wx:key="index">
       <view class="page-row" style="justify-content:center">
         <image class="page_img" wx:for="{{page}}" src="{{item}}" wx:key="index"
         mode="aspectFill"/>
       </view>
-    </block>
+    </block> -->
     </scroll-view>
 </view>

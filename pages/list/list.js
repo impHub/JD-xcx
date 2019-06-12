@@ -57,11 +57,13 @@ Page({
   switchProlistDetail(e){
       //得到data-text的值，点击后活动物品名称
       let index = e.currentTarget.dataset.index;
-    // console.log(this.data.prolist)
+
+    console.log(this.data.prolist[index].id)
     wx.navigateTo({
       //   前面时路径        id时传过去的变量 
       url:"/pages/detail/detail?id=" + this.data.prolist[index].id 
     })
+    
   },
 
   /**

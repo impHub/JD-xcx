@@ -21,7 +21,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options.id,'id')
+    // 得到穿来的商品ID
+    console.log(options.id,'id')
       wx.showLoading({
         title:'加载中....',
       })

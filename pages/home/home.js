@@ -9,7 +9,12 @@ Page({
    */
   data: {
     swipers:[],
-    logos:[],
+    logos:[ 
+      {image: "/image/logo1.png",title: "京东超市"},
+      {image: "/image/logo1.png",title: "京东超市"},
+      {image: "/image/logo1.png",title: "京东超市"},
+      {image: "/image/logo1.png",title: "京东超市"},
+    ],
     quicks:[],
     pageRow:[],
 
@@ -49,7 +54,7 @@ Page({
           //获取数据存储到本地
           this.setData({
             swipers:res.data.swipers,
-            logos:res.data.logos,
+            // logos:res.data.logos,
             quicks:res.data.quicks,
             pageRow:res.data.pageRow
           })
@@ -62,6 +67,7 @@ Page({
     // wx.request({
     //   url
     // })
+    // 跳转
     wx.switchTab({
       url:"/pages/category/category"
     })
