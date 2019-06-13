@@ -27,8 +27,9 @@ Page({
          this.setData({
           cartArray :cartArray,
           totalMoney:totalPrice,
-
         })
+        console.log(this.data.cartArray)
+        
  
   },
 
@@ -67,15 +68,15 @@ Page({
               add.push(res);
             }
           })
+          console.log(arr,add)//分别是选中和没被选中的商品
          this.Calculation(arr)
           wx.setStorage({
             key:'cartInfo',
+            // 没被选中的商品重新存入缓存
             data:add
           })
         }
       })
-     
-     
   },
 
   /**

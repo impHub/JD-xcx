@@ -1,15 +1,27 @@
 <view class="contant">
-   <text>已成功支付！</text>
+<!--  -->
+   <!-- <text>已成功支付！</text> -->
         <!-- 商品名称 单价  数量  总价  -->
-    <block wx:for="{{cartArray}}" wx:key="{{index}}">
+    <!-- <block wx:for="{{cartArray}}" wx:key="{{index}}">
         <view class="p">
                   <view>{{item.title}}</view>
          <view>￥{{item.price}}</view>
           <view>数量:{{item.total}}</view>
         </view>
       
-    </block>
+    </block> -->
   
+
+<!--  -->
+   <block wx:for="{{cartArray}}" wx:key="{{index}}">
+<van-card
+  num="{{item.total}}"
+  price="{{item.price}}"
+  desc="华为手机"
+  title="K20"
+  thumb="{{item.loopImgUrl[0]}}"
+/>
+</block>
 <text>总价：{{totalMoney}}</text>
 
 </view>

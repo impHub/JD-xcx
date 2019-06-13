@@ -42,8 +42,10 @@ Page({
                 partData:data.partData,
                  baitiao:data.baitiao   
               })
+              console.log(this.data.partData)
             }
           })
+         
           wx.hideLoading();
         }
       })

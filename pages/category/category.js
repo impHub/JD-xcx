@@ -56,7 +56,7 @@ Page({
             navRightItems:res.data.navRightItems,
             commodity:data[0].desc
           })
-        
+        console.log(this.data.commodity)
         
           // 加载完成关闭动画
           wx.hideLoading();
@@ -76,20 +76,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      console.log(app.globalData.userInfo)
-      wx.getSetting({
-        success (res) {
-          console.log(res,'getset')
-          let g = res.authSetting['scope.userInfo'];
-          if(res.authSetting['scope.userInfo']){
-            wx.getUserInfo({
-              success: function(res) {
-                console.log(res.userInfo)
-              }
-            })
-          }
-        }
-      })
+      // console.log(app.globalData.userInfo)
+      // wx.getSetting({
+      //   success (res) {
+      //     console.log(res,'getset')
+      //     let g = res.authSetting['scope.userInfo'];
+      //     if(res.authSetting['scope.userInfo']){
+      //       wx.getUserInfo({
+      //         success: function(res) {
+      //           console.log(res.userInfo)
+      //         }
+      //       })
+      //     }
+      //   }
+      // })
   },
 
   /**

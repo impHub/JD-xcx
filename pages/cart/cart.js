@@ -259,7 +259,7 @@ Calculation(cartArray){
       success:res=>{
         let index = 0;
         const cartArray = res.data;
-        // console.log(cartArray,'缓存数据');
+        console.log(cartArray,'缓存数据');
           this.Calculation(cartArray);
           // 设置tabbar图标
         if(cartArray.length >0){

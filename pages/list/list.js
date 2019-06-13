@@ -26,6 +26,7 @@ Page({
           this.setData({
             prolist:res.data
           })
+          console.log(this.data.prolist,'商品详情页数据')
           // 加载完成关闭转圈圈
           wx.hideNavigationBarLoading();
           // 加载完关闭三个点
@@ -46,6 +47,7 @@ Page({
           this.setData({
             prolist:res.data
           })
+          console.log(this.data.prolist,'商品详情页数据')
           // 加载完成关闭动画
       wx.hideLoading();
       }
