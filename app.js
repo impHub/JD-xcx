@@ -1,7 +1,9 @@
 //app.js
+const app = getApp();
+console.log(app)
 App({
   onLaunch: function () {
-    console.log(this.globalData)
+    console.log(this.globalData,'hh')
     let appid = 'wx6eeb04b248b4152b',
         secret = '3db6adfd99a8f2d4f19e10b22a947db2';
 
@@ -23,7 +25,7 @@ App({
       success: res => {
         console.log(res,'app.js  code')
         wx.request({
-          // url: 'http://192.168.31.220:8000/mall/wx/login',
+          url: 'http://192.168.31.220:8000/mall/wx/login',
           // url:'https://api.weixin.qq.com/sns/jscode2session?appid='+appid+'&secret='+secret+'&js_code='+res.code+'&grant_type=authorization_code',
           header: {
             'content-type': 'application/json'
@@ -31,9 +33,12 @@ App({
           data:{
             code:res.code
           },
-          success: function(res) {
-            console.log(res,'获取openid')
-            // openid = res.data.openid //返回openid
+          success: (res) =>{
+            console.log(res.data.openid,'获取openid')
+
+            this.globalData.openId = res.data.openid //返回openid
+            
+            console.log(this.globalData.openId,'全局')
             // wx.request({
             //   url:"https://wd6722557241mhrlvs.wilddogio.com/posts.json",
             //   data:{
@@ -98,6 +103,6 @@ App({
   //当进去小程序时用户信息会存储到userInfo里
   globalData: {
     userInfo: null,
-    openId:'2'
+    openId:null
   }
 })
