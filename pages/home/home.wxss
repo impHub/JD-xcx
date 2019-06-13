@@ -154,3 +154,7 @@
     height: 0;
     color: transparent;
   }
+  /*  */
+  .hd_img{
+    width: 33%;
+  }

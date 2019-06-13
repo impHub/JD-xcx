@@ -48,6 +48,7 @@
           </view>
       </block>
     </view>
+
     <!-- 掌上秒杀 -->
   <view class='page-margin'>
   <view class='page-row'>
@@ -56,13 +57,13 @@
     >
     </image>
     <view class="theme_more">
-      <!-- <text >更多秒杀</text> -->
+      <text >滑动商品查看更多</text>
       <image src="../../image/arrowright.png" mode="aspectFill" />
     </view>
   </view>
     <scroll-view class="theme_scroll" scroll-x="{{true}}">
       <block wx:for-items="{{quicks}}" wx:key="index">
-        <view style="display:inline-block;">
+        <view class="hd_img" style="display:inline-block;">
           <view class="page-column">
             <image src="{{item.image}}" mode="aspectFill"/>
             <text>{{item.price}}</text>
@@ -71,6 +72,7 @@
       </block>
     </scroll-view>
   </view>
+
     <!-- 掌上秒杀 -->
   <view class='page-margin'>
   <view class='page-row'>
@@ -79,7 +81,7 @@
     >
     </image>
     <view class="theme_more">
-      <!-- <text >更多秒杀</text> -->
+      <!-- <text >滑动商品查看更多</text> -->
       <image src="../../image/arrowright.png" mode="aspectFill" />
     </view>
   </view>

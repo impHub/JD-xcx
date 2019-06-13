@@ -1,4 +1,5 @@
 const interfaces = require('../../utils/urlconfig');
+const app = getApp();
 // pages/category/category.js
 Page({
 
@@ -75,7 +76,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      console.log(app.globalData.userInfo)
+      wx.getSetting({
+        success (res) {
+          console.log(res,'getset')
+          let g = res.authSetting['scope.userInfo'];
+          if(res.authSetting['scope.userInfo']){
+            wx.getUserInfo({
+              success: function(res) {
+                console.log(res.userInfo)
+              }
+            })
+          }
+        }
+      })
   },
 
   /**

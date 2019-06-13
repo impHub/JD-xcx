@@ -1,4 +1,19 @@
-<view class="cart">
+<view class="sq" wx:if="{{!authorization}}">
+     <view class="empty_wrap">
+        <image class="empty_icon" src="/image/shop_cart.png" />
+<!-- <button class="empty_txt" 
+>点击进行授权</button> -->
+<view class="empty_txt">
+<van-button open-type="getUserInfo" bindgetuserinfo="getUserInfo"  
+type="primary">点击授权</van-button>
+</view>
+
+        <!-- <button><text class="empty_txt">没有授权</text></button> -->
+        
+    </view>
+</view>
+
+<view class="cart" wx:else>
     <view class="empty_wrap" wx:if="{{cartArray.length == 0}}">
         <image class="empty_icon" src="/image/shop_cart.png" />
         <text class="empty_txt">购物车空空如也，去逛逛把~</text>

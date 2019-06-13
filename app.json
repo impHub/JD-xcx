@@ -6,7 +6,8 @@
     "pages/me/me",
     "pages/list/list",
     "pages/detail/detail",
-    "pages/settlement/settlement"
+    "pages/settlement/settlement",
+    "pages/bought/bought"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,6 +1,11 @@
 {
  "navigationBarTitleText": "购物车",
  "usingComponents": {
-    "amount":"/components/amount/amount"
+    "amount":"/components/amount/amount",
+      "van-button": "../.././distt/button/index",
+      "van-popup":  "../.././distt/popup/index",
+      "van-notice-bar": "../.././distt/notice-bar/index"
+    
   }
+  
 }

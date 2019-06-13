@@ -23,31 +23,28 @@ App({
       success: res => {
         console.log(res,'app.js  code')
         wx.request({
-          url: 'https://www.lixikeji.cn/Lxkj_WeChatMall/wxPayController/GetOpenid.do',
+          // url: 'http://192.168.31.220:8000/mall/wx/login',
           // url:'https://api.weixin.qq.com/sns/jscode2session?appid='+appid+'&secret='+secret+'&js_code='+res.code+'&grant_type=authorization_code',
-          // data: {
-          //   code:res.code
-          // },
-          
-          // header: {
-          //     'content-type': 'application/json'
-          // },
-          // method:OPTIONS,
+          header: {
+            'content-type': 'application/json'
+          },
+          data:{
+            code:res.code
+          },
           success: function(res) {
             console.log(res,'获取openid')
             // openid = res.data.openid //返回openid
-
-            wx.request({
-              url:"https://wd6722557241mhrlvs.wilddogio.com/posts.json",
-              data:{
-                name:'yujiarui',
+            // wx.request({
+            //   url:"https://wd6722557241mhrlvs.wilddogio.com/posts.json",
+            //   data:{
+            //     name:'yujiarui',
                 
-              },
-              method:'POST',
-              success:res=>{
-                console.log(res,'yujiarui成功')
-              }
-            })
+            //   },
+            //   method:'POST',
+            //   success:res=>{
+            //     console.log(res,'yujiarui成功')
+            //   }
+            // })
 
 
           }

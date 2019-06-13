@@ -17,13 +17,15 @@ Page({
   },
   // 实现获取用户信息方法
   getUserInfo(e){
-
+    console.log(e)
     wx.authorize({
       scope: 'scope.userInfo',
       success:res=> {
 
         console.log(res,'成功')
         // console.log(e.detail.userInfo);
+        //把用户授权信息存储到全局
+        app.globalData.userInfo = e.detail.userInfo;
         this.setData({
           // 把获取到的信息赋值
           userInfo:e.detail.userInfo,
@@ -36,41 +38,31 @@ Page({
 
   
   },
-  // cclick: function(){
-  //   wx.getUserInfo({
-  //   success: function (res) {
-    
-  //   },
-  //   fail: function(){
-    
+  // getUserInfoFunction: function (e) {
+  //   console.log('chufa',e)
+  //   if (!e.detail.userInfo) {
+  //     console.log('jil')
+  //     wx.showModal({
+  //       title: '提示',
+  //       content: '为了您的用户体验请同意授权！',
+  //       showCancel: false
+  //     })
+  //   } else {
+  //     console.log('jil2')
+  //     app.globalData.userInfo = e.detail.userInfo;
+  //     wx.setStorageSync('userInfo', e.detail.userInfo);
+  //     this.onLoad()
   //   }
-  //   })
-  //   },
-  getUserInfoFunction: function (e) {
-    console.log('chufa',e)
-    if (!e.detail.userInfo) {
-      console.log('jil')
-      wx.showModal({
-        title: '提示',
-        content: '为了您的用户体验请同意授权！',
-        showCancel: false
-      })
-    } else {
-      console.log('jil2')
-      app.globalData.userInfo = e.detail.userInfo;
-      wx.setStorageSync('userInfo', e.detail.userInfo);
-      this.onLoad()
-    }
-  },
+  // },
 
   
-  zhuanfa(){
-    //步数
-    wx.getWeRunData({
-      success(res) {
-        // const encryptedData = res.encryptedData
-      }
-    })
+  // zhuanfa(){
+  //   //步数
+  //   wx.getWeRunData({
+  //     success(res) {
+  //       // const encryptedData = res.encryptedData
+  //     }
+  //   })
     // 触发时会跳转到授权页面查看改变授权状态
     // wx.openSetting({
     //   success(res) {
@@ -81,21 +73,21 @@ Page({
     //     // }
     //   }
     // })
-    wx.startRecord()//录音权限请求
+    // wx.startRecord()//录音权限请求
     // 弹出授权询问
-    wx.authorize({
-      // 授权类别 发票
-      scope: 'scope.invoice',
-      // 成功返回
-      success() {
-        console.log('发票功能')
-        // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-        // wx.startRecord()
-      },
-      fail(){
-        console.log('失败')
-      }
-    })
+    // wx.authorize({
+    //   // 授权类别 发票
+    //   scope: 'scope.invoice',
+    //   // 成功返回
+    //   success() {
+    //     console.log('发票功能')
+    //     // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+    //     // wx.startRecord()
+    //   },
+    //   fail(){
+    //     console.log('失败')
+    //   }
+    // })
     // wx.authorize({
     //   scope: 'scope.record',
     //   success() {
@@ -103,44 +95,9 @@ Page({
     //     wx.startRecord()
     //   }
     // })
-    wx.login({
-      success: res => {
-        console.log(res,'login')
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    wx.getSetting({
-      success(res) {
-        console.log(res.authSetting,'getSetting')
-        // res.authSetting = {
-        //   "scope.userInfo": true,
-        //   "scope.userLocation": true
-        // }
-      }
-    })
-    wx.request({
-      url: "https://wd6722557241mhrlvs.wilddogio.com/posts.json",
-      header:{
-        "content-type":"application/json"
-        //默认值，返回的数据设置为json数据格式
-      },
-      data:{name:12},
-      // success(res){
-      //   console.log(res,'请求成功');
-      //   console.log(this)
-      // }
-      method: "POST",
-      //需要用箭头函数不然找不到this
-      success : res=>{
-        console.log(res,'me.js,post 请求');
-        // console.log(res.data.quicks,'请求成');
-        // console.log(this,'hah');
-        //获取数据存储到本地
-       
-        //2. 加载完成停止loading
-        // wx.hideLoading()
-      }
-  })
+   
+   
+ 
     // 收获地址 第一次触发会有提示窗
     // wx.chooseAddress({
     //   success(res) {
@@ -159,33 +116,21 @@ Page({
     // wx.showShareMenu({
     //   withShareTicket:true
     // })
-    wx.getSetting({
-      success(res) {
-        console.log('shouquan')
-        if (!res.authSetting['scope.record']) {
-          console.log('shouquan2')
-          wx.authorize({
-            scope: 'scope.record',
-            success() {
-              console.log('shouquan')
-              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-              // wx.startRecord()
-            }
-          })
-        }
-      }
-    })
-  },
-  add(){
-    console.log('add')
-  },
+ 
+  
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getSetting({
+      success (res) {
+      }
+    })
     console.log('onLoad监听页面加载',1)
     // console.log(getApp());
     // //在进入是监听判断
+    console.log(app.globalData.userInfo)
     if(app.globalData.userInfo){
       // console.log(app.globalData)
       this.setData({
@@ -216,6 +161,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.getSetting({
+      success :res=>{
+        // console.log(res.authSetting['scope.userInfo'],'panduan')
+        //已经授权
+        if(res.authSetting['scope.userInfo']){
+          wx.getUserInfo({
+            success: (res)=> {
+              app.globalData.userInfo = res.userInfo;
+              this.setData({
+                // 把获取到的信息赋值
+                userInfo:res.userInfo,
+                hasUserInfo:true
+              })
+              console.log(res.userInfo)
+            }
+          })
+        }else{//未授权
+          console.log('weishouq1')
+          this.setData({
+            authorization : false
+           })
+        }
+      }
+    })
     console.log('onShow监听页面显示',3)
   },
 
