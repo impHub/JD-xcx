@@ -25,10 +25,11 @@
                         <!-- wx:for遍历容器 -->
                         <block  wx:for="{{commodity}}" wx:for-item="desc" wx:key="desc">
                             <!-- 内容外层容器 -->
-                    <view class="jd-category-style" bindtap="showListView"data-text="{{desc.text}}">
+                    <view class="jd-category-style" bindtap="showListView"
+                    data-text="{{desc.classificationName}}" data-index='{{index}}'>
                                         <!-- 最终遍历出图片文字信息进行渲染 -->
-                                <image class="list_img" src="{{desc.img}}" />
-                                <text class="list_text">{{desc.text}}</text>
+                                <image class="list_img" src="{{desc.classificationIcon}}" />
+                                <text class="list_text">{{desc.classificationName}}</text>
                             </view>
                             
                         </block>

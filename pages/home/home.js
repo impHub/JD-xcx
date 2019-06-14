@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    path:'',
     swipers:[],
     logos:[ 
       {image: "/image/logo1.png",title: "京东超市"},
@@ -36,6 +37,7 @@ Page({
     //微信提供的请求
     wx.request({
         url: interfaces.homepage,
+        // url:'http://192.168.31.220:8000/mall/wx/homepage',
         header:{
           "content-type":"application/json"
           //默认值，返回的数据设置为json数据格式
@@ -53,10 +55,10 @@ Page({
           // console.log(this,'hah');
           //获取数据存储到本地
           this.setData({
-            swipers:res.data.swipers,
+            swipers:res.data.swipers,//
             // logos:res.data.logos,
-            quicks:res.data.quicks,
-            pageRow:res.data.pageRow
+            quicks:res.data.news,//
+            pageRow:res.data.discounts//
           })
           //2. 加载完成停止loading
           wx.hideLoading()

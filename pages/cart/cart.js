@@ -101,6 +101,7 @@ Calculation(cartArray){
   //数量
   let i = 0; 
   let key = true;
+  let num = 0;
     // 遍历数组
     cartArray.forEach(res=>{
       res.isTouchMove = false;//是否滑动
@@ -108,8 +109,12 @@ Calculation(cartArray){
         // 结算数量
         i++;
         // 总价计算
-      let price = parseInt(res.price)*res.total;
+      let price = parseFloat(res.price)*100*res.total;
+      
       totalPrice += price;
+      num = totalPrice/100;
+      // let num = 100;
+      console.log(price,totalPrice,'总价的计算')
       }else{
         // 全选功能
         key = false;
@@ -119,7 +124,7 @@ Calculation(cartArray){
 // 更新计算结果  
        this.setData({
         cartArray :cartArray,
-        totalMoney:totalPrice,
+        totalMoney:num,
         totalCount:i,
         selectAll:key
       })

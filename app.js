@@ -34,7 +34,7 @@ App({
             code:res.code
           },
           success: (res) =>{
-            console.log(res.data.openid,'获取openid')
+            console.log(res.data,'获取openid')
 
             this.globalData.openId = res.data.openid //返回openid
             

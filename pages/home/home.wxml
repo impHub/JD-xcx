@@ -65,8 +65,9 @@
       <block wx:for-items="{{quicks}}" wx:key="index">
         <view class="hd_img" style="display:inline-block;">
           <view class="page-column">
-            <image src="{{item.image}}" mode="aspectFill"/>
-            <text>{{item.price}}</text>
+            <image src="{{item.productImg}}" mode="aspectFill"/>
+             <text >{{item.productName}}</text>
+            <text>{{item.productPrice}}</text>
           </view>
         </view>
       </block>
@@ -86,11 +87,12 @@
     </view>
   </view>
     <scroll-view class="theme_scroll" scroll-x="{{true}}">
-      <block wx:for-items="{{quicks}}" wx:key="index">
+      <block wx:for-items="{{pageRow}}" wx:key="index">
         <view style="display:inline-block;">
           <view class="page-column">
-            <image src="{{item.image}}" mode="aspectFill"/>
-            <text>{{item.price}}</text>
+            <image src="{{item.productImg}}" mode="aspectFill"/>
+            <text >{{item.productName}}</text>
+            <text>{{item.productPrice}}</text>
           </view>
         </view>
       </block>

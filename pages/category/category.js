@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: { 
-      commodity:[],
+      commodity:[],//分类数据
       navLeftItems:[],
       navRightItems:[],
       curIndex:0 //index关联 左边的class样式 右边渲染的数组 arr[index]
@@ -24,12 +24,19 @@ Page({
   },
 
   showListView(e){
+      console.log(this.data.commodity,'id',e.currentTarget.dataset.index)
+      let commodity = this.data.commodity
+      let index = e.currentTarget.dataset.index;
+      let id = commodity[index].classificationId;
+      console.log(id)
       //得到data-text的值，点击后活动物品名称
       let text = e.currentTarget.dataset.text;
+
+      // let arr  = {id,text}
       // 用微信提供的api进行跳转到新的页面
       wx.navigateTo({
-        //   前面时路径        title时传过去的变量
-        url:"/pages/list/list?title=" + text
+        //   前面时路径        title时传过去的变量 
+        url:'/pages/list/list?id=' + id + '&text=' + text
       })
   },
 
@@ -47,14 +54,16 @@ Page({
           "content-type":"application/json"
         },
         success : res=>{
-          let data=  res.data.navRightItems[0];
+          console.log(res.data)
+          // let data=  res.data.navRightItems[0];
          
-          console.log(data[0].desc)
+          // console.log(data[0].desc)
           // console.log(res.data.navRightItems,'cat')
           this.setData({
-            navLeftItems:res.data.navLeftItems,
-            navRightItems:res.data.navRightItems,
-            commodity:data[0].desc
+            // navLeftItems:res.data.navLeftItems,
+            // navRightItems:res.data.navRightItems,
+            // commodity:data[0].desc
+            commodity :res.data
           })
         console.log(this.data.commodity)
         

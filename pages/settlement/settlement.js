@@ -135,18 +135,24 @@ Page({
     let totalPrice = 0;
     //数量
     let i = 0;
+    let num = 0;
     // 遍历数组
     cartArray.forEach(res => {
       i++;
       // 总价计算
-      let price = parseInt(res.price) * res.total;
+      // let price = parseInt(res.price) * res.total;
+      // totalPrice += price;
+
+      let price = parseFloat(res.price)*100*res.total;
+      
       totalPrice += price;
+      num = totalPrice/100;
     })
     // 得到数据 计算 总价 个数 是否全选 
     // 更新计算结果  
     this.setData({
       cartArray: cartArray,
-      totalMoney: totalPrice,
+      totalMoney: num,
     })
     console.log(this.data.cartArray)
 

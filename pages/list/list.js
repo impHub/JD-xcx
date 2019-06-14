@@ -15,12 +15,14 @@ Page({
     
   },
   
-  http(e){
+  http(e,c){
+    console.log(e,c)
     if(e){
       wx.showNavigationBarLoading();
                // 请求数据
      wx.request({
       url:interfaces.productionsList,
+      data:{classificationId:e},
       success:res=>{
         // console.log(res.data)
           this.setData({
@@ -59,8 +61,9 @@ Page({
   switchProlistDetail(e){
       //得到data-text的值，点击后活动物品名称
       let index = e.currentTarget.dataset.index;
+      console.log(this.data.prolist,'')
 
-    console.log(this.data.prolist[index].id)
+    console.log(this.data.prolist[index].id,'list id')
     wx.navigateTo({
       //   前面时路径        id时传过去的变量 
       url:"/pages/detail/detail?id=" + this.data.prolist[index].id 
@@ -72,16 +75,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      // console.log(options.title);
+      console.log(options,'onLoad');
       // 设置头部标题api
       wx.setNavigationBarTitle({
         // 把接受过来的值进行设置
-        title: options.title
+        title: options.text
       })
       wx.showLoading({
         title:'加载中....'
       })
-      this.http();
+      this.http(options.id);
      
   },
 

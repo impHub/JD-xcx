@@ -21,7 +21,7 @@
             <text>{{partData.title}}</text>
         </view>
         <view class="priceWrap">
-            <text>${{partData.price}}</text>
+            <text>￥{{partData.price}}</text>
         </view>
 
          <!-- infocell组件 支付  使用组件-->

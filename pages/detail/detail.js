@@ -22,29 +22,35 @@ Page({
    */
   onLoad: function (options) {
     // 得到穿来的商品ID
-    console.log(options.id,'id')
+    console.log(options.id,'id det')
       wx.showLoading({
         title:'加载中....',
       })
       wx.request({
         url:interfaces.productionDetail,
+        data:{productId:options.id},
         success:res=>{
           // data才是我们的数据
           // console.log(res.data)
-          // 循环遍历 
-          res.data.forEach(data=>{
-            // console.log(data.baitiao)
-            // id相匹配时，改变数据
-            if(data.partData.id == options.id){
-              data.partData.select = true;
-              // console.log(data,'sa')
-              this.setData({
-                partData:data.partData,
-                 baitiao:data.baitiao   
-              })
-              console.log(this.data.partData)
-            }
+          this.setData({
+            partData:res.data
           })
+
+
+          // // 循环遍历 
+          // res.data.forEach(data=>{
+          //   // console.log(data.baitiao)
+          //   // id相匹配时，改变数据
+          //   if(data.partData.id == options.id){
+          //     data.partData.select = true;
+          //     // console.log(data,'sa')
+          //     this.setData({
+          //       partData:data.partData,
+          //        baitiao:data.baitiao   
+          //     })
+          //     console.log(this.data.partData)
+          //   }
+          // })
          
           wx.hideLoading();
         }
