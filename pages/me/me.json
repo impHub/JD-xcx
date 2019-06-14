@@ -1,3 +1,13 @@
 {
-  "navigationBarTitleText": "我的"
+  "navigationBarTitleText": "我的",
+  "usingComponents": {
+    "amount":"/components/amount/amount",
+      "van-button": "../.././distt/button/index",
+      "van-popup":  "../.././distt/popup/index",
+      "van-notice-bar": "../.././distt/notice-bar/index",
+      "van-card": "../.././distt/card/index",
+      "van-cell": "../.././distt/cell/index",
+      "van-cell-group": "../.././distt/cell-group/index"
+    
+  }
 }

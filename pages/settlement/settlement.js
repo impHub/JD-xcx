@@ -40,7 +40,7 @@ Page({
               console.log(res.countyName)
               console.log(res.detailInfo)
               let add = '' + res.provinceName + res.cityName + res.countyName + res.detailInfo;
-              console.log(add)
+              // console.log(add,'add9999999999999999999999')
               console.log(res.nationalCode)
               console.log(res.telNumber)
               // console.log(this)

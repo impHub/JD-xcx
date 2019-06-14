@@ -7,6 +7,13 @@
         <block wx:else >
             <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover" />
             <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+            <view class="wrap">
+            <van-cell title="我的订单" is-link data-item = '0' bindtap='btn' />
+             <van-cell title="收货地址" is-link data-item = '1' bindtap='btn' />
+            <van-cell title="联系客服" is-link data-item = '2' bindtap='btn' />
+            <van-cell title="常见问题" is-link data-item = '3' bindtap='btn' />
+            </view>
+           
         </block>
         
          <!-- <button bindtap="zhuanfa">转发</button> -->

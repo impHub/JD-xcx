@@ -1,0 +1,9 @@
+<!--pages/service/service.wxml-->
+<view>
+  <image src='../../image/service.jpg' class='service'></image>
+  <view class="call">
+    <text>客服中心服务热线</text>
+    <image src="../../image/call@2x.png" bindtap="openConfirm"></image>
+    <button open-type='contact' hover-class='none' class='contact_btn'>联系客服</button>
+  </view>
+</view>
