@@ -37,8 +37,9 @@ App({
             console.log(res.data,'获取openid')
 
             this.globalData.openId = res.data.openid //返回openid
+            this.globalData.userId = res.data.userid
             
-            console.log(this.globalData.openId,'全局')
+            console.log(this.globalData,'全局')
             // wx.request({
             //   url:"https://wd6722557241mhrlvs.wilddogio.com/posts.json",
             //   data:{
@@ -103,6 +104,7 @@ App({
   //当进去小程序时用户信息会存储到userInfo里
   globalData: {
     userInfo: null,
-    openId:null
+    openId:null,
+    userId:null
   }
 })

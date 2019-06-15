@@ -10,10 +10,13 @@ const interfaces = {
     productions : domain + "/classify/list",//分类
     
     // productionsList:domain + "/api/profiles/productionsList",
-    productionsList:domain + "/product/getbyclassify",//商品详情
+    productionsList:domain + "/product/getbyclassify",//商品详情列表
 
     // productionDetail:domain + "/api/profiles/productionDetail"
-    productionDetail:domain + "/product/detail"
+    productionDetail:domain + "/product/detail",//单个商品
+
+    order:domain + "/order"
+    
 }
 
 //暴露接口

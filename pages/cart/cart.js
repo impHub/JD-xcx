@@ -208,6 +208,7 @@ Calculation(cartArray){
 // 结算
   Settlement(){
     if(this.data.totalCount >0){
+      
       wx.navigateTo({
         //   前面时路径        
         url:"/pages/settlement/settlement"

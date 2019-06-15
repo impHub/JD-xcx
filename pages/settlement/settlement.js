@@ -1,5 +1,6 @@
 // pages/settlement/settlement.js
 const app = getApp();
+const interfaces = require('../../utils/urlconfig');
 console.log('1111111')
 console.log(app,'app')
 
@@ -166,7 +167,70 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 
+    wx.getStorage({
+      key: 'cartInfo',
+      success: res => {
+        let obj = {}
+        const arr = [];
+        const add = [];
+        const cartArray = res.data;
+        // console.log(cartArray)
+        cartArray.forEach(res => {
+          if (res.select) {
+            arr.push(res);
+          } else {
+            add.push(res);
+          }
+        })
+        console.log(arr,'arr', add,'add',app.globalData.userId)//分别是选中和没被选中的商品
+        obj.list = arr;
+        console.log(obj,'obj')
+        wx.request({
+          url:interfaces.order,
+          method:'POST',
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          data:{
+            // userId:app.globalData.userId,
+            userId:1,
+            list:JSON.stringify(obj)
+          },
+          success:res=>{
+            console.log(res,'huidiao')
+          }
+        })
+        this.Calculation(arr)
+      }
+    })
+    // 
+    console.log(app.globalData.userId,'USERID')
+    // wx.request({
+    //   url:interfaces.order,
+    //   method:'POST',
+    //   success:res=>{
+    //     wx.getStorage({
+    //       key: 'cartInfo',
+    //       success: res => {
+    //         const arr = [];
+    //         const add = [];
+    //         const cartArray = res.data;
+    //         // console.log(cartArray)
+    //         cartArray.forEach(res => {
+    //           if (res.select) {
+    //             arr.push(res);
+    //           } else {
+    //             add.push(res);
+    //           }
+    //         })
+    //         console.log(arr,'arr', add)//分别是选中和没被选中的商品
+    //         this.Calculation(arr)
+    //       }
+    //     })
+    //   }
+    // })
+    
   },
 
   /**
@@ -180,30 +244,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.getStorage({
-      key: 'cartInfo',
-      success: res => {
-        const arr = [];
-        const add = [];
-        const cartArray = res.data;
-        // console.log(cartArray)
-        cartArray.forEach(res => {
-          if (res.select) {
-            arr.push(res);
-          } else {
-            add.push(res);
-          }
-        })
-        console.log(arr, add)//分别是选中和没被选中的商品
-        this.Calculation(arr)
-        // wx.setStorage({
-        //   key:'cartInfo',
-        //   // 没被选中的商品重新存入缓存
-        //   //暂时不取消
-        //   data:add
-        // })
-      }
-    })
+    // wx.getStorage({
+    //   key: 'cartInfo',
+    //   success: res => {
+    //     const arr = [];
+    //     const add = [];
+    //     const cartArray = res.data;
+    //     // console.log(cartArray)
+    //     cartArray.forEach(res => {
+    //       if (res.select) {
+    //         arr.push(res);
+    //       } else {
+    //         add.push(res);
+    //       }
+    //     })
+    //     console.log(arr, add)//分别是选中和没被选中的商品
+    //     this.Calculation(arr)
+    //   }
+    // })
   },
 
   /**
