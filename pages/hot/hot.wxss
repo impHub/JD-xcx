@@ -1,0 +1,4 @@
+/* pages/active/hot/hot.wxss */
+page{
+  background: #fff;
+}

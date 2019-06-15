@@ -1,0 +1,5 @@
+<!--pages/active/hot/hot.wxml-->
+<view class='active_box'>
+  <image src='../../image/a.jpg'></image>
+  <view>正在努力开发中→→→</view>
+</view>

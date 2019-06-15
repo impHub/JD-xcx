@@ -11,10 +11,10 @@ Page({
     path:'',
     swipers:[],
     logos:[ 
-      {image: "/image/logo1.png",title: "京东超市"},
-      {image: "/image/logo1.png",title: "京东超市"},
-      {image: "/image/logo1.png",title: "京东超市"},
-      {image: "/image/logo1.png",title: "京东超市"},
+      {image: "/image/tls.png",title: "分类"},
+      {image: "/image/xc.png",title: "辣味干货"},
+      {image: "/image/xg.png",title: "地方美食"},
+      {image: "/image/dg.png",title: "特色Vip"},
     ],
     quicks:[],
     pageRow:[],
@@ -65,14 +65,23 @@ Page({
         }
     })
   },
-  add(){
+  add(e){
     // wx.request({
     //   url
     // })
     // 跳转
-    wx.switchTab({
-      url:"/pages/category/category"
-    })
+   
+    if(e.currentTarget.dataset.index == 0){
+      wx.switchTab({
+        url:"/pages/category/category"
+      })
+    }else{
+      wx.navigateTo({
+        //   前面时路径        id时传过去的变量 
+        url:"/pages/hot/hot"
+      })
+    }
+  
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

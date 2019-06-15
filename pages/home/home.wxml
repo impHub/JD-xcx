@@ -41,7 +41,7 @@
     <!-- 图标分类 -->
     <view class='big-logo'>
       <block wx:for='{{logos}}' wx:key="index">
-          <view class='logoinfo' bindtap='add'>
+          <view class='logoinfo' bindtap='add' data-index='{{index}}'>
             <image style='width:100rpx; height:100rpx' src='{{item.image}}' mode='aspectFit'> 
             </image>
             <text class='logotext'>{{item.title}}</text>
