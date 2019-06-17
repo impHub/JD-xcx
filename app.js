@@ -60,22 +60,22 @@ App({
 
 
         let data = res.data
-        wx.request({
-          url: 'https://www.lixikeji.cn/Lxkj_WeChatMall/mallUserController/addMallUser.do',
-            //  url:'https://www.lixikeji.cn/Lxkj_WeChatMallUserController/addMallUser.do',
-            // url:'https://www.lixikeji.cn/Lxkj_WeChatMall/mallUserController/addMallUser.do',
-          //   data: {
-          //     code: res.code
-          //   },
-          // method:'POST',
-          success:res=>{
-            console.log(res,'id成功')
-          },
-          fail:res=>{
-              console.log(res,'fila')
-          },
+        // wx.request({
+        //   url: 'https://www.lixikeji.cn/Lxkj_WeChatMall/mallUserController/addMallUser.do',
+        //     //  url:'https://www.lixikeji.cn/Lxkj_WeChatMallUserController/addMallUser.do',
+        //     // url:'https://www.lixikeji.cn/Lxkj_WeChatMall/mallUserController/addMallUser.do',
+        //   //   data: {
+        //   //     code: res.code
+        //   //   },
+        //   // method:'POST',
+        //   success:res=>{
+        //     console.log(res,'id成功')
+        //   },
+        //   fail:res=>{
+        //       console.log(res,'fila')
+        //   },
 
-          })
+        //   })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
       

@@ -65,6 +65,35 @@ Page({
         }
     })
   },
+  
+   //点击跳转到detail
+   Detail(e){
+     
+    //得到data-text的值，点击后活动物品名称
+    let index = e.currentTarget.dataset.index;
+    console.log('dianji',index)
+    console.log(this.data.quicks,'')
+
+  console.log(this.data.quicks[index].productId,'list id')
+  wx.navigateTo({
+    //   前面时路径        id时传过去的变量 
+    url:"/pages/detail/detail?id=" + this.data.quicks[index].productId 
+  })
+  
+},
+//活动专区跳转
+activity(e){
+    //得到data-text的值，点击后活动物品名称
+    let index = e.currentTarget.dataset.index;
+    console.log('dianji',index)
+    console.log(this.data.pageRow,'')
+
+  console.log(this.data.pageRow[index].productId,'list id')
+  wx.navigateTo({
+    //   前面时路径        id时传过去的变量 
+    url:"/pages/detail/detail?id=" + this.data.pageRow[index].productId 
+  })
+},
   add(e){
     // wx.request({
     //   url

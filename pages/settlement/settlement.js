@@ -12,7 +12,10 @@ Page({
   data: {
     cartArray: [],
     totalMoney: 0,
-    text: '收货地址'
+    text: '收货地址',
+    details:'',//详细信息
+    orderId:'',
+    
   },
   chooseAddress() {
     // wx.openSetting({
@@ -30,7 +33,7 @@ Page({
       success: (res) => {
         console.log(res.authSetting['scope.address'], '开始授权')
         if (res.authSetting['scope.address']) {
-          console.log('2')
+          console.log('已经授权')
           wx.chooseAddress({
             success: (res) => {
               console.log(res.userName)
@@ -41,12 +44,15 @@ Page({
               console.log(res.countyName)
               console.log(res.detailInfo)
               let add = '' + res.provinceName + res.cityName + res.countyName + res.detailInfo;
-              // console.log(add,'add9999999999999999999999')
+              let Details = res.userName + res.telNumber + add;
+              
+              console.log(Details,'add9999999999999999999999')
               console.log(res.nationalCode)
               console.log(res.telNumber)
               // console.log(this)
               this.setData({
-                text: add
+                text: add,
+                details:Details
               })
             }
           })
@@ -66,7 +72,7 @@ Page({
             success() {
               // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
               wx.chooseAddress({
-                success(res) {
+                success:(res)=> {
                   console.log(res.userName)
                   console.log(res.postalCode)
                   console.log(res.provinceName)
@@ -75,6 +81,17 @@ Page({
                   console.log(res.detailInfo)
                   console.log(res.nationalCode)
                   console.log(res.telNumber)
+                  let add = '' + res.provinceName + res.cityName + res.countyName + res.detailInfo;
+                  let Details = res.userName + res.telNumber + add;
+                  
+                  console.log(Details,'add9999999999999999999999')
+                  console.log(res.nationalCode)
+                  console.log(res.telNumber)
+                  // console.log(this)
+                  this.setData({
+                    text: add,
+                    details:Details
+                  })
                 }
               })
             },
@@ -92,29 +109,34 @@ Page({
     let openid = app.globalData.openId;
     console.log(openid,90)
     wx.request({
-      url: 'http://192.168.31.220:8000/mall/wx/pay',
+      url: 'http://192.168.31.220:8000/mall/wx/order/pay',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       data: {
-        openid: openid,
+        openId: openid,
+        addr:this.data.details,
+        orderId:this.data.orderId
       },
       success:res=>{
+        console.log(res)
         if (res.statusCode == '200') {
+          console.log(res,'支付信息')
           wx.requestPayment({
             'timeStamp': res.data.timeStamp,
             'nonceStr': res.data.nonceStr,
             'package': res.data.package,
             'signType': res.data.signType,
-            'paySign': res.data.sign,
+            'paySign': res.data.paySign,
             success:res=>{
               if (res.errMsg == 'requestPayment:ok') {
                 wx.showToast({
                   title: '支付成功',
                   icon: 'success',
                   duration: 2000,
-                  success: function() {
+                  success: res=> {
+                      console.log(res)
                     // setTimeout(function() {
                     //   wx.redirectTo({
                     //     url: '../order/order',
@@ -171,7 +193,7 @@ Page({
     wx.getStorage({
       key: 'cartInfo',
       success: res => {
-        let obj = {}
+        let obj = [];
         const arr = [];
         const add = [];
         const cartArray = res.data;
@@ -184,7 +206,7 @@ Page({
           }
         })
         console.log(arr,'arr', add,'add',app.globalData.userId)//分别是选中和没被选中的商品
-        obj.list = arr;
+        obj = arr;
         console.log(obj,'obj')
         wx.request({
           url:interfaces.order,
@@ -193,12 +215,13 @@ Page({
             "Content-Type": "application/x-www-form-urlencoded"
           },
           data:{
-            // userId:app.globalData.userId,
-            userId:1,
+            userId:app.globalData.userId,
+            // userId:1,
             list:JSON.stringify(obj)
           },
           success:res=>{
             console.log(res,'huidiao')
+           this.data.orderId = res.data.orderId
           }
         })
         this.Calculation(arr)
