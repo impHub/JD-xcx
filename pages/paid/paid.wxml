@@ -1,0 +1,16 @@
+<!-- pages/paid/paid.wxml -->
+<view class="">
+    <block wx:for="{{payArr}}" wx:key="{{index}}" class="wrap">
+        <van-panel title="总价:￥{{item.orderPrice}}" desc="订单编号:{{item.orderId}}" status="已支付">
+            <view>
+                <block wx:for="{{item.list}}" wx:for-item="desc" wx:key="desc">
+                    <van-card 
+                    num="{{desc.productNum}}" 
+                    price="{{desc.productPrice}}" 
+                    desc="" title="{{desc.productName}}" 
+                    thumb="{{desc.productImg}}" />
+                </block>
+            </view>
+        </van-panel>
+    </block>
+</view>

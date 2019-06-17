@@ -15,9 +15,12 @@ Page({
     text: '收货地址',
     details:'',//详细信息
     orderId:'',
-    
+    key:false,  //是否填写收货信息
+    add:[], //未选中商品缓存
+    offer:'',//优惠信息
   },
   chooseAddress() {
+    let that = this;
     // wx.openSetting({
     //   success(res) {
     //     console.log(res.authSetting)
@@ -50,10 +53,12 @@ Page({
               console.log(res.nationalCode)
               console.log(res.telNumber)
               // console.log(this)
-              this.setData({
+              that.setData({
                 text: add,
-                details:Details
+                details:Details,
+                key:true
               })
+              console.log(that.data.key,'key')
             }
           })
         } else if (res.authSetting['scope.address'] === false) {
@@ -86,12 +91,14 @@ Page({
                   
                   console.log(Details,'add9999999999999999999999')
                   console.log(res.nationalCode)
-                  console.log(res.telNumber)
+                  
                   // console.log(this)
-                  this.setData({
+                  that.setData({
                     text: add,
-                    details:Details
+                    details:Details,
+                    key:true
                   })
+                  console.log(res.telNumber,that.data.key,'key')
                 }
               })
             },
@@ -106,50 +113,72 @@ Page({
   },
   // 支付
   Settlement() {
-    let openid = app.globalData.openId;
-    console.log(openid,90)
-    wx.request({
-      url: 'http://192.168.31.220:8000/mall/wx/order/pay',
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      data: {
-        openId: openid,
-        addr:this.data.details,
-        orderId:this.data.orderId
-      },
-      success:res=>{
-        console.log(res)
-        if (res.statusCode == '200') {
-          console.log(res,'支付信息')
-          wx.requestPayment({
-            'timeStamp': res.data.timeStamp,
-            'nonceStr': res.data.nonceStr,
-            'package': res.data.package,
-            'signType': res.data.signType,
-            'paySign': res.data.paySign,
-            success:res=>{
-              if (res.errMsg == 'requestPayment:ok') {
-                wx.showToast({
-                  title: '支付成功',
-                  icon: 'success',
-                  duration: 2000,
-                  success: res=> {
-                      console.log(res)
-                    // setTimeout(function() {
-                    //   wx.redirectTo({
-                    //     url: '../order/order',
-                    //   });
-                    // }, 1500)
-                  }
-                });
+    // if(null){
+    //   console.log(null,'可以通过')
+    // }
+    // 验证openid和地址
+    if(this.data.key){
+      let openid = app.globalData.openId;
+      console.log(openid,90)
+      wx.request({
+        url: 'http://192.168.31.220:8000/mall/wx/order/pay',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+          openId: openid,
+          addr:this.data.details,
+          orderId:this.data.orderId
+        },
+        success:res=>{
+          console.log(res)
+          if (res.statusCode == '200') {
+            console.log(res,'支付信息')
+            wx.requestPayment({
+              'timeStamp': res.data.timeStamp,
+              'nonceStr': res.data.nonceStr,
+              'package': res.data.package,
+              'signType': res.data.signType,
+              'paySign': res.data.paySign,
+              success:res=>{
+                if (res.errMsg == 'requestPayment:ok') {
+                  wx.showToast({
+                    title: '支付成功',
+                    icon: 'success',
+                    duration: 2000,
+                    success: res=> {
+                        console.log(res,'150已支付')
+                        wx.setStorage({
+                          key:'cartInfo',
+                          data:this.data.add
+                        })
+                        
+                      // setTimeout(function() {
+                        wx.redirectTo({
+                          url: '/pages/paid/paid',
+                        });
+                      // }, 1500)
+                    }
+                  });
+                }
               }
-            }
-          })
+            })
+          }
         }
-      }
-    })
+      })
+    }else{
+      wx.showModal({
+        content: '请选择收货地址！',
+        showCancel: false,
+        success: (res) => {
+          if (res.confirm) {
+            console.log('收货地址，用户点击确定');
+          }
+        }
+      });
+    }
+  
   },
 
   Calculation(cartArray) {
@@ -196,6 +225,7 @@ Page({
         let obj = [];
         const arr = [];
         const add = [];
+        console.log()
         const cartArray = res.data;
         // console.log(cartArray)
         cartArray.forEach(res => {
@@ -206,6 +236,7 @@ Page({
           }
         })
         console.log(arr,'arr', add,'add',app.globalData.userId)//分别是选中和没被选中的商品
+        this.data.add = add;
         obj = arr;
         console.log(obj,'obj')
         wx.request({
@@ -220,10 +251,15 @@ Page({
             list:JSON.stringify(obj)
           },
           success:res=>{
-            console.log(res,'huidiao')
+            // console.log(res.data.promoteMsg,'huidiao')
+            // this.data.offer = res.data.promoteMsg;
+            this.setData({
+              offer:res.data.promoteMsg
+            })
            this.data.orderId = res.data.orderId
           }
         })
+        
         this.Calculation(arr)
       }
     })

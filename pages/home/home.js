@@ -32,7 +32,8 @@ Page({
   onLoad: function (options) {
     //1 . 创建数据加载loading动画
     wx.showLoading({
-      title:'加载中....'
+      title:'加载中....',
+      mask:true
     })
     //微信提供的请求
     wx.request({
@@ -64,6 +65,7 @@ Page({
           wx.hideLoading()
         }
     })
+
   },
   
    //点击跳转到detail

@@ -9,7 +9,8 @@
     "pages/settlement/settlement",
     "pages/bought/bought",
     "pages/service/service",
-    "pages/hot/hot"
+    "pages/hot/hot",
+    "pages/paid/paid"
   ],
   "window": {
     "backgroundTextStyle": "light",

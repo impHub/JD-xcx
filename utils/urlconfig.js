@@ -15,7 +15,9 @@ const interfaces = {
     // productionDetail:domain + "/api/profiles/productionDetail"
     productionDetail:domain + "/product/detail",//单个商品
 
-    order:domain + "/order"
+    order:domain + "/order",
+
+    payOrder:domain + '/order/list/pay' //已支付商品信息
     
 }
 

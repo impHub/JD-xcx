@@ -1,10 +1,15 @@
 <view class="contant">
+  <!-- 优惠活动 -->
+  <view wx:if="{{offer}}">
+    <van-notice-bar scrollable="false" text="{{offer}}" />
+  </view>
+  
   <!-- 收货地址 -->
   <van-cell title="{{text}}" is-link bindtap='chooseAddress' />
-<!--  -->
-   <!-- <text>已成功支付！</text> -->
-        <!-- 商品名称 单价  数量  总价  -->
-    <!-- <block wx:for="{{cartArray}}" wx:key="{{index}}">
+  <!--  -->
+  <!-- <text>已成功支付！</text> -->
+  <!-- 商品名称 单价  数量  总价 -->
+  <!-- <block wx:for="{{cartArray}}" wx:key="{{index}}">
         <view class="p">
                   <view>{{item.title}}</view>
          <view>￥{{item.price}}</view>
@@ -12,35 +17,28 @@
         </view>
       
     </block> -->
-<!--  -->
-   <block wx:for="{{cartArray}}" wx:key="{{index}}">
-<van-card
-  num="{{item.total}}"
-  price="{{item.price}}"
-  desc="华为手机"
-  title="K20"
-  thumb="{{item.loopImgUrl[0]}}"
-/>
-</block>
-<!-- <text>总价：{{totalMoney}}</text> -->
+  <!--  -->
+  <block wx:for="{{cartArray}}" wx:key="{{index}}">
+    <van-card num="{{item.total}}" price="{{item.price}}" desc="" title="{{item.title}}" thumb="{{item.loopImgUrl[0]}}" />
+  </block>
+  <!-- <text>总价：{{totalMoney}}</text> -->
   <!-- 结算样式 -->
-        <view class="fixBar">
-            <!-- <view class="select_all" catchtap='selectAll'>
+  <view class="fixBar">
+    <!-- <view class="select_all" catchtap='selectAll'>
            
                 <image wx:if="{{selectAll}}" class="icon"
                 src="/image/selected.png"  />
                  <image wx:else class="icon" src="/image/unselect.png"  />
                  <text>全选</text>
             </view> -->
-            <!--总价 -->
-            <view class="total">
-                <text>合计</text>
-                <text class="money">￥{{totalMoney}}</text>
-            </view>
-            <!-- 结算按钮 -->
-            <view class="btn_amount">
-                <button bindtap="Settlement">确认支付</button>
-            </view>
-        </view>
-
+    <!-- 总价 -->
+    <view class="total">
+      <text>合计</text>
+      <text class="money">￥{{totalMoney}}</text>
+    </view>
+    <!-- 结算按钮 -->
+    <view class="btn_amount">
+      <button bindtap="Settlement">确认支付</button>
+    </view>
+  </view>
 </view>

@@ -7,6 +7,8 @@
       "van-card": "../.././distt/card/index",
       "van-cell": "../.././distt/cell/index",
       "van-cell-group": "../.././distt/cell-group/index"
+  
+
     
   }
 }

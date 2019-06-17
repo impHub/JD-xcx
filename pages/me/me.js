@@ -44,6 +44,9 @@ Page({
     switch (x) {
       case '0':
         console.log('我的订单')
+        wx.navigateTo({
+          url:"/pages/paid/paid"
+        })
         break;
       case '1':
         console.log('收货地址')
