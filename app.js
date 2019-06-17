@@ -1,6 +1,7 @@
 //app.js
 const app = getApp();
 console.log(app)
+const interfaces = require('./utils/urlconfig');
 App({
   onLaunch: function () {
     console.log(this.globalData,'hh')
@@ -25,7 +26,7 @@ App({
       success: res => {
         console.log(res,'app.js  code')
         wx.request({
-          url: 'http://192.168.31.220:8000/mall/wx/login',
+          url: interfaces.login,
           // url:'https://api.weixin.qq.com/sns/jscode2session?appid='+appid+'&secret='+secret+'&js_code='+res.code+'&grant_type=authorization_code',
           header: {
             'content-type': 'application/json'

@@ -119,54 +119,54 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-    let key = true;
-    this.http(key);
-  },
+  // onPullDownRefresh: function () {
+  //   let key = true;
+  //   this.http(key);
+  // },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    const prolist = this.data.prolist;
-    let page = this.data.page;
-    // 上拉加载
-    //停止下拉刷新
-    wx.stopPullDownRefresh();
-    //加载时的状态
-    wx.showNavigationBarLoading();
-    //开始下拉时page从1页变成第二页的数据
-    this.setData({
-      page : ++page
-    })
-    //上拉加载请求数据
-    wx.request({
-      url:interfaces.productionsList + '/' + this.data.page + '/' + this.data.size,
-      success:res=>{
-        if(res.data.length == 0){
-          this.setData({
-            noData:true
-          })
-        }else{
-          res.data.forEach(item=>{
-            prolist.push(item)
-          })
-          // console.log(res.data)
-            this.setData({
-              prolist:prolist
-            })
-        }
-        //把获取到第二页的5条数据遍历push到第一页数据里去 
+  // onReachBottom: function () {
+  //   const prolist = this.data.prolist;
+  //   let page = this.data.page;
+  //   // 上拉加载
+  //   //停止下拉刷新
+  //   wx.stopPullDownRefresh();
+  //   //加载时的状态
+  //   wx.showNavigationBarLoading();
+  //   //开始下拉时page从1页变成第二页的数据
+  //   this.setData({
+  //     page : ++page
+  //   })
+  //   //上拉加载请求数据
+  //   wx.request({
+  //     url:interfaces.productionsList + '/' + this.data.page + '/' + this.data.size,
+  //     success:res=>{
+  //       if(res.data.length == 0){
+  //         this.setData({
+  //           noData:true
+  //         })
+  //       }else{
+  //         res.data.forEach(item=>{
+  //           prolist.push(item)
+  //         })
+  //         // console.log(res.data)
+  //           this.setData({
+  //             prolist:prolist
+  //           })
+  //       }
+  //       //把获取到第二页的5条数据遍历push到第一页数据里去 
        
-          // 加载完成关闭动画
-          wx.hideNavigationBarLoading();
-      // wx.hideLoading();
-      }
-  })
+  //         // 加载完成关闭动画
+  //         wx.hideNavigationBarLoading();
+  //     // wx.hideLoading();
+  //     }
+  // })
 
 
     
-  },
+  // },
 
   /**
    * 用户点击右上角分享

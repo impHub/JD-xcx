@@ -18,6 +18,7 @@ Page({
     key:false,  //是否填写收货信息
     add:[], //未选中商品缓存
     offer:'',//优惠信息
+    orderPrice:'',//优惠后的价格
   },
   chooseAddress() {
     let that = this;
@@ -121,7 +122,7 @@ Page({
       let openid = app.globalData.openId;
       console.log(openid,90)
       wx.request({
-        url: 'http://192.168.31.220:8000/mall/wx/order/pay',
+        url: interfaces.orderPay,
         method: 'POST',
         header: {
           'content-type': 'application/x-www-form-urlencoded'
@@ -251,10 +252,11 @@ Page({
             list:JSON.stringify(obj)
           },
           success:res=>{
-            // console.log(res.data.promoteMsg,'huidiao')
+            console.log(res.data,'huidiao')
             // this.data.offer = res.data.promoteMsg;
             this.setData({
-              offer:res.data.promoteMsg
+              offer:res.data.promoteMsg,
+              orderPrice:res.data.orderPrice
             })
            this.data.orderId = res.data.orderId
           }

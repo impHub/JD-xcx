@@ -3,6 +3,7 @@
 const domain = 'http://192.168.31.220:8000/mall/wx';
 // 首页 /login 192.168.31.220:8000/mall/wx/homepage
 const interfaces = {
+    login:domain + '/login',
     // homepage : domain + "/api/profiles/homepage",
     homepage : domain + "/homepage",//主页
 
@@ -15,7 +16,9 @@ const interfaces = {
     // productionDetail:domain + "/api/profiles/productionDetail"
     productionDetail:domain + "/product/detail",//单个商品
 
-    order:domain + "/order",
+    order:domain + "/order",//价格及其优惠信息
+
+    orderPay:domain + '/order/pay',//支付接口
 
     payOrder:domain + '/order/list/pay' //已支付商品信息
     
