@@ -18,7 +18,7 @@ Page({
       url: interfaces.payOrder,
       data:{userId:app.globalData.userId},
       success:res=>{
-        console.log(res.data.status)
+        console.log(res.data.status,'zhifu')
         this.setData({
           payArr:res.data
         })

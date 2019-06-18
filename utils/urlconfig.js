@@ -24,7 +24,9 @@ const interfaces = {
 
     orderPay:domain + '/order/pay',//支付接口
 
-    payOrder:domain + '/order/list/pay' //已支付商品信息
+    payOrder:domain + '/order/list/pay', //已支付商品信息
+
+    paySuccess:domain + '/order/update/paysuccess',//提示后台成功支付
     
 }
 

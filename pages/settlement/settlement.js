@@ -149,6 +149,14 @@ Page({
                     icon: 'success',
                     duration: 2000,
                     success: res=> {
+                      // 
+                      wx.request({
+                        url:interfaces.paySuccess,
+                        data:{orderId:this.data.orderId},
+                        success:res=>{
+                          console.log(res)
+                        }
+                      })
                         console.log(res,'150已支付')
                         wx.setStorage({
                           key:'cartInfo',
