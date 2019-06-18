@@ -28,7 +28,7 @@
     <!-- popView与组件里注册相对应 -->
         <infocell 
         bind:popView='popBaitiaoView'
-        title="支付" 
+        title="客服" 
         desc='{{baitiaoSelectItem.desc}}'>
         </infocell>
 
@@ -56,16 +56,31 @@
     </view>
 
     <!-- iou组件 遍历白条信息 -->
-    <iou 
+    <!-- <iou 
      bind:liou='liouView'
     baitiao="{{baitiao}}" 
     hideBaitiao="{{hidebaitiao}}">
     
-    </iou>
+    </iou> -->
 
     
     <!-- buy组件 -->
     <buy bind:buy="addCart" bind:getcount="getcount"
     hideBuy="{{hideBuy}}" 
     partData="{{partData}}"></buy>
+    <!-- 图片 -->
+        <view class='weui-panel'>
+      <view class="weui-loadmore weui-loadmore_line">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">商品详情图</view>
+      </view>
+      <view class='particulars'>
+        {{detail[0].productParticulars}}
+      </view>
+      <!-- 利用widthFix让原图更加清晰 -->
+      <!-- <block wx:for="{{imgDetail}}">
+        <view>{{item}}</view>
+      </block> -->
+      <image wx:for="{{imgDetail}}" wx:key="index" src="{{item}}" data-index='{{index}}' bindtap='previewImage' class='fade_in' mode='widthFix'></image>
+    </view>
+    <!--  -->
 </view>

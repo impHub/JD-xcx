@@ -1,4 +1,5 @@
 /* pages/detail/index.wxss */
+@import "../../style/weui.wxss";
 .detail{
     display: flex;
     flex-direction: column;
@@ -20,7 +21,7 @@
   .buy_area{
     box-sizing: border-box;
     width: 100%;
-    padding-bottom: 120rpx;
+    padding-bottom: 60rpx;
   }
   .textWrap{
     background: #fff;
@@ -53,6 +54,7 @@
     display: flex;
     flex-direction: row;
     border-top: 2rpx solid #e8e8ed;
+    z-index: 998;
   }
   .icon_cart{
     position: relative;
@@ -97,3 +99,350 @@
     border: 2rpx solid  #f56c6c;
   }
   
+  /*  */
+  .tip{
+    padding:10px;
+  }
+  .tip .zan-cell__desc {
+    color: #666;
+    line-height: 1.8;
+  }
+  .weui-panel,.zan-panel{
+    margin-top:5px;
+  }
+  .weui-panel__hd{
+    padding:0;
+    /* margin-bottom:20rpx; */
+  }
+  .zan-ellipsis--l2 {
+    left:206rpx;
+  }
+  swiper{
+    height:200px;
+  }
+  .slide-image{
+    height:100%;
+  }
+  .tick{
+    width:16px;
+    height:16px;
+    position:relative;
+    top:3px;
+    margin-right:2px;
+  }
+  .detail-box {
+    width:96%;
+    margin:20rpx auto;
+  }
+  .detail-box image{
+    width: 100%;
+    /* height:80%; */
+  }
+  .weui-media-box{
+    position:relative;
+    box-sizing: border-box;
+  }
+  .weui-media-box .zan-btn{
+    position:absolute;
+    right:-15px;
+    top:-9px;
+    /* height: 20px; */
+    border: none;
+    /* line-height: 20px; */
+  }
+  .detail-box .share{
+    width:15px;
+    height: 15px;
+    position:relative;
+    top:3px;
+  }
+  
+  .weui-media-box__desc,.weui-media-box__info__meta{
+    color:#666;
+  }
+  .fr {
+     /* margin-left:49rpx; */
+    position: absolute;
+    right:280rpx;
+    bottom:40rpx;
+  }
+  .frk {
+    position: absolute;
+    right:20rpx;
+    bottom:40rpx;
+    /* margin-left:49rpx; */
+  }
+  .weui-media-box__desc {
+     color:#ff3040;
+  }
+  .fff {
+    position: absolute;
+    /* z-index:100; */
+    left:73rpx;
+    top:40rpx;
+  }
+  .weui-media-box__info__meta:first-child{
+    /* padding-right: 0.1em; */
+    position: absolute;
+    /* right:510rpx; */
+    bottom:40rpx;
+  }
+  .weui-loadmore_line{
+    margin-bottom: 0;
+  }
+  .particulars{
+    padding:5px 15px;
+    text-align: center;
+    margin:0 auto 1em;
+    font-size:13px;
+    color:#666;
+  }
+  
+  .add-box{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* height:120rpx; */
+    height:118rpx;
+    background: #fff;
+  }
+  .price-box{
+    width: 70%;
+    display:flex; 
+  }
+  .btn{
+    width: 30%;
+    display: flex;
+  }
+  .price-box>text{
+    width: 30%;
+    height: 80rpx;
+    font-size: 30rpx;
+    text-align: center;
+    position: relative;
+  }
+  .price-box>view{
+    width: 30%;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    position: relative;
+    /* border-right:1rpx solid #ddd; */
+  }
+  .price-box>view:first-child{
+    padding:5rpx 30rpx;
+  }
+  .price-box>add-cart{
+    width: 30%;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size:30rpx; 
+  }
+  .price-box>text{
+    line-height: 80rpx;
+    color:red;
+    box-sizing: border-box;
+    font-size: 30rpx;
+    border-right:1rpx solid #ddd;
+  }
+  .price-box>view>view{
+    line-height: 80rpx;
+    color:#666;
+    font-size: 30rpx;
+    /* border-right:1rpx solid #ddd; */
+  }
+  .price-box image{
+    width:60rpx;
+    height: 60rpx;
+    /* margin-top:10px; */
+    /* border-right:1rpx solid #ddd; */
+    padding:5px;
+  }
+  .kefu,
+  .add-cart1 {
+    position:absolute;
+    left:40rpx;
+    top:54rpx;
+  }
+  .add-cart1 {
+    left:2rpx;
+  }
+  .price-box .add-cart {
+    background-color:#B3DBDA;
+    width:193rpx;
+    font-weight: 700;
+    color:#fff;
+    text-align: center;
+    padding:25rpx 0;
+  }
+  .btn>button{
+    /* border-radius: 0px; */
+    border-radius: 2px;
+    border:none;
+    float: right;
+  }
+  .zan-btn{
+    width: 193rpx;
+    height:120rpx;
+    line-height: 120rpx;
+    /* flex-grow: 0.5; */
+    font-size: 28rpx;
+    background:#FFC474;
+    float: right;
+    font-weight:700;
+    
+    /* padding-top:6rpx; */
+    /* float: right; */
+    /* bottom:500rpx; */
+  } 
+  
+  /* 弹出层内容 */
+  .dialog-box{
+    padding:15px 0 0 0;
+  }
+  .zan-card__right-col{
+    color:#f44;
+    position: absolute;
+    left:200rpx;
+    top:55rpx;
+    font-size:12px;
+  }
+  .zan-card__img {
+    position: absolute;
+    left:32rpx;
+    top:-32rpx;
+    width:160rpx;
+    height:140rpx;
+    border-radius: 10rpx;
+  }
+  .close{
+    width:50rpx;
+    height: 50rpx;
+    position: absolute;
+    top:10rpx;
+    right:44rpx;
+  }
+  
+  /* 下单 确定按钮*/
+  .order{
+    position: absolute;
+    right:0;
+    bottom:0;
+    width:50%;
+    height:80rpx;
+    color:#fff;
+    text-align: center;
+    line-height: 80rpx;
+    background:#FF3938;
+    font-size:30rpx;
+    margin:15px 0 0 0;
+  }
+  .left{
+    left:0;
+    background-color: #FFC474;
+  }
+  /* 购买数量按钮 */
+  .zan-card__detail>view:nth-child(2){
+    position: absolute;
+    left:30rpx;
+    top:100rpx;
+    margin:15px 0 0 0;
+  }
+  .zan-card__detail>view:nth-child(2) text{
+    font-size: 26rpx;
+  }
+  .zan-quantity {
+    position: relative;
+    left:280rpx;
+    top:0rpx;
+    color: #666;
+    display: inline-block;
+    margin:0 10px 0 0;
+  }
+  /* .zan-quantity .text {
+    padding-left:20rpx;
+  } */
+  .zan-quantity__text {
+    height:100%;
+  }
+  .zan-quantity view {
+    display: inline-block;
+    height: 64rpx;
+    width: 80rpx;
+    line-height: 36rpx;
+    padding: 5px 0;
+    text-align: center;
+    min-width: 80rpx;
+    box-sizing: border-box;
+    vertical-align: middle;
+    font-size: 24rpx;
+    border: 1rpx solid #999;
+  }
+  .zan-quantity .zan-quantity__minus {
+    border-right: none;
+    border-radius: 2px 0 0 2px;
+  }
+  .zan-quantity .zan-quantity__text {
+    border: 1rpx solid #999;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    height: 60rpx;
+    width: 100rpx;
+    font-size: 24rpx;
+    line-height: 60rpx;
+  }
+  .zan-quantity .zan-quantity__plus {
+    font-size:20px;
+    border-left: none;
+    border-radius: 0 2px 2px 0;
+  }
+  
+  /* 按钮禁用的样式 */
+  .zan-quantity .zan-quantity--disabled {
+    background: #f8f8f8;
+    font-size:20px;
+    color: #bbb;
+    border-color: #e8e8e8;
+  }
+  
+  .zan-panel .tick{
+    width:32rpx;
+    height:32rpx;
+    position:relative;
+    top:3px;
+    margin:0 3px;
+  }
+  
+  .weui-badge{
+    font-size: 24rpx;
+    margin-bottom:3px;
+  }
+  
+  .add-tip{
+    font-size: 24rpx;
+    width:35rpx;
+    text-align: center;
+    position:fixed;
+    right:45rpx;
+    bottom:220rpx;
+  }
+  .weui-panel:after{
+  border-bottom: 0;
+  }
+  
+  .weui-panel:before {
+    border:none;
+  }
+  
+  .weui-panel:after {
+    border:none;
+  }
+  .weui-panel__hd:after{
+    border:none;
+  }
+  /* 立即购买按钮 */
+  #sizeBtn{
+    width: 225rpx;
+  }

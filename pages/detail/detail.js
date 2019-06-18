@@ -10,12 +10,38 @@ Page({
     baitiao:null,
     // 最终的白条信息
     baitiaoSelectItem:{
-      desc:'【白条支付】首单享立减优惠'
+      desc:'7 x 12小时在线'
     },
     hidebaitiao:true,
 
     hideBuy:true,
-    badgeCount:0
+    badgeCount:0,
+    imgDetail:[], //图片展示
+  },
+
+  // 点击图片
+  previewImage:function(e){
+    // console.log(e.target.dataset.index);
+    let index = e.target.dataset.index;//当前点击的index
+    // console.log(index)
+    let that=this;
+    let imgArray = that.data.imgDetail;//整个图片组
+    let str = that.data.path;  //请求接口地址
+    // console.log(imgArray[0],str,'99090')
+    let newArray=imgArray.map(function(item){
+        console.log(item)
+      return str+'/'+item
+    })
+    wx.previewImage({
+      // 用户当前点击图片的链接
+      current:str+'/'+imgArray[index],
+      //	需要预览的图片链接列表
+      urls: newArray,
+      success:(res)=>{
+        console.log(newArray,' 需要预览的图片http链接列表')
+        console.log(res,'接口调用成功！');
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -25,6 +51,17 @@ Page({
     console.log(options.id,'id det')
       wx.showLoading({
         title:'加载中....',
+      })
+      wx.request({
+        url:'http://192.168.31.220:8000/mall/wx/product/detail/img',
+        data:{productId:options.id},
+        success:res=>{
+          console.log(res.data)
+          this.setData({
+            imgDetail:res.data
+          })
+          // this.data.imgDetail = res.data;
+        }
       })
       wx.request({
         url:interfaces.productionDetail,
@@ -60,11 +97,14 @@ Page({
   },
 // 把组件注册事件重新定义
   popBaitiaoView(){
-    // console.log('detail白条')
-    //点击之后弹出白条详细信息
-    this.setData({
-      hidebaitiao:false
+    // 跳转到客服
+    wx.navigateTo({
+      url: '../service/service',
     })
+    //点击之后弹出白条详细信息
+    // this.setData({
+    //   hidebaitiao:false
+    // })
   },
   popBuyView(){
     this.setData({
