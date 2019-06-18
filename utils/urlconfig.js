@@ -1,6 +1,7 @@
 //配置请求接口文件
 // const domain = 'https://floating-mountain-54305.herokuapp.com';
-const domain = 'http://192.168.31.220:8000/mall/wx';
+// const domain = 'http://192.168.31.220:8000/mall/wx';
+const domain = 'https://www.lixikeji.cn/mall/wx';
 // 首页 /login 192.168.31.220:8000/mall/wx/homepage
 const interfaces = {
     login:domain + '/login',
@@ -12,6 +13,9 @@ const interfaces = {
     
     // productionsList:domain + "/api/profiles/productionsList",
     productionsList:domain + "/product/getbyclassify",//商品详情列表
+
+    //
+    detailImg:domain + '/product/detail/img',
 
     // productionDetail:domain + "/api/profiles/productionDetail"
     productionDetail:domain + "/product/detail",//单个商品

@@ -23,7 +23,7 @@ Page({
   previewImage:function(e){
     // console.log(e.target.dataset.index);
     let index = e.target.dataset.index;//当前点击的index
-    // console.log(index)
+    console.log(index,'index')
     let that=this;
     let imgArray = that.data.imgDetail;//整个图片组
     let str = that.data.path;  //请求接口地址
@@ -34,9 +34,9 @@ Page({
     })
     wx.previewImage({
       // 用户当前点击图片的链接
-      current:str+'/'+imgArray[index],
+      current:imgArray[index],
       //	需要预览的图片链接列表
-      urls: newArray,
+      urls: imgArray,
       success:(res)=>{
         console.log(newArray,' 需要预览的图片http链接列表')
         console.log(res,'接口调用成功！');
@@ -53,7 +53,7 @@ Page({
         title:'加载中....',
       })
       wx.request({
-        url:'http://192.168.31.220:8000/mall/wx/product/detail/img',
+        url:interfaces.detailImg,
         data:{productId:options.id},
         success:res=>{
           console.log(res.data)

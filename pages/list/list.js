@@ -55,7 +55,7 @@ Page({
       }
   })
     }
-  
+    wx.hideLoading()
   },
   //点击跳转到detail
   switchProlistDetail(e){

@@ -18,10 +18,11 @@ Page({
       url: interfaces.payOrder,
       data:{userId:app.globalData.userId},
       success:res=>{
-        console.log(res.data)
+        console.log(res.data.status)
         this.setData({
           payArr:res.data
         })
+        console.log(this.data.payArr,'zhif')
       }
     })
   },
