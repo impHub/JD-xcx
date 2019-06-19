@@ -65,7 +65,8 @@
 .swiper-item{
     display: block;
     width: 100%;
-    height: 325rpx;
+    /* height: 325rpx; */
+    height: 425rpx;
 }
 
 .big-logo{

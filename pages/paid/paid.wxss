@@ -1,4 +1,5 @@
 /* pages/paid/paid.wxss */
 .wrap{
-    margin-bottom: 60rpx;
+    margin-bottom: 25rpx;
+    border-bottom:2rpx solid #e8e8ed
 }

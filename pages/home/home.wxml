@@ -29,7 +29,7 @@
         circular="true"
         indicator-color="rgba(255.255.255.3)"
         indicator-active-color="#fff"
-        style="width:100%;height:325rpx;"
+        style="width:100%;height:425rpx;"
         >
         <block wx:for="{{swipers}}" wx:key="index">
             <swiper-item>
