@@ -14,6 +14,11 @@
             </view>
         </van-panel>
         </view>
-      
+        <!--  -->
+        <van-steps
+  steps="{{ steps }}"
+  active="{{ item.orderStatus -1 }}"
+/>
     </block>
+    
 </view>

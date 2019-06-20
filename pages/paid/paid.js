@@ -8,6 +8,28 @@ Page({
    */
   data: {
     payArr:[],
+    active:2,
+    // 
+    steps: [
+      {
+        text: '已付款',
+        desc: ''
+      },
+      {
+        text: '已发货',
+        desc: ''
+      },
+      {
+        text: '已收货',
+        desc: ''
+      },
+      {
+        text: '已完成',
+        desc: ''
+      }
+    ]
+    // 
+
   },
 
   /**
@@ -72,7 +94,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
 
-  }
+  // }
 })

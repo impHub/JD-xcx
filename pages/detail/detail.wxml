@@ -69,18 +69,18 @@
     hideBuy="{{hideBuy}}" 
     partData="{{partData}}"></buy>
     <!-- 图片 -->
-        <view class='weui-panel'>
-      <view class="weui-loadmore weui-loadmore_line">
-        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">商品详情</view>
+        <!-- <view id='col'> -->
+      <view class="weui-loadmore weui-loadmore_line" >
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line" id="col">商品详情</view>
       </view>
-      <view class='particulars'>
+      <!-- <view class='particulars'>
         {{detail[0].productParticulars}}
-      </view>
+      </view> -->
       <!-- 利用widthFix让原图更加清晰 -->
       <!-- <block wx:for="{{imgDetail}}">
         <view>{{item}}</view>
       </block> -->
       <image id="imgs" wx:for="{{imgDetail}}" wx:key="index" src="{{item}}" data-index='{{index}}' bindtap='previewImage' class='fade_in' mode='widthFix'></image>
-    </view>
+    <!-- </view> -->
     <!--  -->
 </view>
