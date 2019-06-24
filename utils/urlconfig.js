@@ -8,6 +8,8 @@ const interfaces = {
     // homepage : domain + "/api/profiles/homepage",
     homepage : domain + "/homepage",//主页
 
+    homeMore : domain + '/produtc/list/page',
+
     // productions : domain + "/api/profiles/productions",
     productions : domain + "/classify/list",//分类
     
@@ -27,6 +29,8 @@ const interfaces = {
     payOrder:domain + '/order/list/pay', //已支付商品信息
 
     paySuccess:domain + '/order/update/paysuccess',//提示后台成功支付
+
+    
     
 }
 

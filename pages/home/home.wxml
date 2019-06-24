@@ -1,103 +1,104 @@
 <view class="container">
-<!-- 搜索 左图标-->
-    <view class="search">
-        <view class="scan">
-            <image class="widgets-img" src="../../image/ai3.png"
-               mode='aspectFit' />
-        </view>
-        <!-- 搜索框 -->
+  <!-- 搜索 左图标 -->
+  <view class="search">
+    <view class="scan">
+      <image class="widgets-img" src="../../image/ai3.png" mode='aspectFit' />
+    </view>
+    <!-- 搜索框 -->
     <view class="search-input">
-     <image class="search-icon" src="../../image/ath.png"
-       mode='aspectFit'/>
-       <input class="search-text" placeholder="搜索商品"/>
+      <image class="search-icon" src="../../image/ath.png" mode='aspectFit' />
+      <input class="search-text" placeholder="搜索商品" />
     </view>
-<!-- 右图标 -->
-<view class="scan">
-    <image class="widgets-img" src="../../image/ahv.png" 
-      mode='aspectFit'/>
-</view>
+    <!-- 右图标 -->
+    <view class="scan">
+      <image class="widgets-img" src="../../image/ahv.png" mode='aspectFit' />
     </view>
-    <!-- 可滚动区域 -->
-    <scroll-view class='content-scroll' scroll-y="true">
-<!-- 轮播图 -->
+  </view>
+  <!-- 可滚动区域 -->
+  <scroll-view class='content-scroll' scroll-y="true" bindscrolltolower="sljz">
+    <!-- <view class="content-scroll"> -->
+    <!-- 轮播图 -->
     <view class="indicator-wrap">
-        <swiper indicator-dots="{{indicatordots}}"
-        vertical="{{vertical}}"
-        autoplay="{{interval}}"
-        duration="{{duration}}"
-        interval='{{interval}}'
-        circular="true"
-        indicator-color="rgba(255.255.255.3)"
-        indicator-active-color="#fff"
-        style="width:100%;height:425rpx;"
-        >
+      <swiper indicator-dots="{{indicatordots}}" vertical="{{vertical}}" autoplay="{{interval}}" duration="{{duration}}" interval='{{interval}}' circular="true" indicator-color="rgba(255.255.255.3)" indicator-active-color="#fff" style="width:100%;height:425rpx;">
         <block wx:for="{{swipers}}" wx:key="index">
-            <swiper-item>
-                <image mode="aspectFill" class="swiper-item" src="{{item.image}}" />
-            </swiper-item>
+          <swiper-item>
+            <image mode="aspectFill" class="swiper-item" src="{{item.image}}" />
+          </swiper-item>
         </block>
-        </swiper>
+      </swiper>
     </view>
     <!-- 图标分类 -->
     <view class='big-logo'>
       <block wx:for='{{logos}}' wx:key="index">
-          <view class='logoinfo' bindtap='add' data-index='{{index}}'>
-            <image style='width:100rpx; height:100rpx' src='{{item.image}}' mode='aspectFit'> 
-            </image>
-            <text class='logotext'>{{item.title}}</text>
-          </view>
-      </block>
-    </view>
-
-    <!-- 掌上秒杀 -->
-  <view class='page-margin'>
-  <view class='page-row'>
-    <image class='theme_img' src="../../image/djxp.png"
-    mode="aspectFill"
-    >
-    </image>
-    <view class="theme_more">
-      <text >滑动商品查看更多</text>
-      <image src="../../image/arrowright.png" mode="aspectFill" />
-    </view>
-  </view>
-    <scroll-view class="theme_scroll" scroll-x="{{true}}">
-      <block wx:for-items="{{quicks}}" wx:key="index">
-        <view class="hd_img" style="display:inline-block;" bindtap="Detail" data-index='{{index}}'>
-          <view class="page-column">
-            <image src="{{item.productImg}}" mode="aspectFill"/>
-             <text >{{item.productName}}</text>
-            <text>{{item.productPrice}}</text>
-          </view>
+        <view class='logoinfo' bindtap='add' data-index='{{index}}'>
+          <image style='width:100rpx; height:100rpx' src='{{item.image}}' mode='aspectFit'></image>
+          <text class='logotext'>{{item.title}}</text>
         </view>
       </block>
-    </scroll-view>
-  </view>
-
-    <!-- 掌上秒杀 -->
-  <view class='page-margin'>
-  <view class='page-row'>
-    <image class='theme_img' src="../../image/hdzq.png"
-    mode="aspectFill"
-    >
-    </image>
-    <view class="theme_more">
-      <!-- <text >滑动商品查看更多</text> -->
-      <image src="../../image/arrowright.png" mode="aspectFill" />
     </view>
-  </view>
-    <scroll-view class="theme_scroll" scroll-x="{{true}}">
-      <block wx:for-items="{{pageRow}}" wx:key="index">
-        <view class="hd_img" style="display:inline-block;" bindtap="activity" data-index='{{index}}'>
-          <view class="page-column">
-            <image src="{{item.productImg}}" mode="aspectFill"/>
-            <text >{{item.productName}}</text>
-            <text>{{item.productPrice}}</text>
-          </view>
+    <!-- 掌上秒杀 -->
+    <view class='page-margin'>
+      <view class='page-row'>
+        <image class='theme_img' src="../../image/djxp.png" mode="aspectFill"></image>
+        <view class="theme_more">
+          <text>滑动商品查看更多</text>
+          <image src="../../image/arrowright.png" mode="aspectFill" />
         </view>
-      </block>
-    </scroll-view>
+      </view>
+      <scroll-view class="theme_scroll" scroll-x="{{true}}">
+        <block wx:for-items="{{quicks}}" wx:key="index">
+          <view class="hd_img" style="display:inline-block;" bindtap="Detail" data-index='{{index}}'>
+            <view class="page-column">
+              <image src="{{item.productImg}}" mode="aspectFill" />
+              <text>{{item.productName}}</text>
+              <text>{{item.productPrice}}</text>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    <!-- 掌上秒杀 -->
+    <view class='page-margin'>
+      <view class='page-row'>
+        <image class='theme_img' src="../../image/hdzq.png" mode="aspectFill"></image>
+        <view class="theme_more">
+          <!-- <text >滑动商品查看更多</text> -->
+          <image src="../../image/arrowright.png" mode="aspectFill" />
+        </view>
+      </view>
+      <scroll-view class="theme_scroll" scroll-x="{{true}}">
+        <block wx:for-items="{{pageRow}}" wx:key="index">
+          <view class="hd_img" style="display:inline-block;" bindtap="activity" data-index='{{index}}'>
+            <view class="page-column">
+              <image src="{{item.productImg}}" mode="aspectFill" />
+              <text>{{item.productName}}</text>
+              <text>{{item.productPrice}}</text>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+     <!-- 上拉加载更多 -->
+    <view class="wrap_c">
+      <view class="g_conter">更多商品</view>
+      <view class="xl_sx">
+        <block wx:for="{{more}}" wx:key="index">
+          <view class="hd_img" style="display:inline-block;" bindtap="more" data-index='{{index}}'>
+            <view class="page-column">
+              <image src="{{item.productImg}}" mode="aspectFill" />
+              <text>{{item.productNameS}}</text>
+              <text>{{item.productPrice}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    
+      <view class='endview' wx:if='{{noData}}'>
+    <text>我是有底线的</text>
   </view>
+    <view wx:else class="loadmore loading endview">正在加载.....</view>
+    
     <!-- 会场分类 -->
     <!-- <block wx:for="{{pageRow}}" wx:for-item="page" wx:key="index">
       <view class="page-row" style="justify-content:center">
@@ -105,5 +106,8 @@
         mode="aspectFill"/>
       </view>
     </block> -->
-    </scroll-view>
+  </scroll-view> 
+ 
+  <!-- 上拉加载更多商品 -->
+ 
 </view>

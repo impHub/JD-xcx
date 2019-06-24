@@ -1,4 +1,5 @@
 /* pages/home/home.wxss */
+@import "../../style/weui.wxss";
 .search{
     display: flex;
     flex-direction: row;
@@ -158,4 +159,29 @@
   /*  */
   .hd_img{
     width: 33%;
+  }
+
+  .xl_sx{
+    width: 100%;
+  }
+  .g_conter{
+    margin: 0  auto;
+    /* margin-top: 20rpx; */
+    
+    text-align: center;
+    color: #f40;
+  }
+  .wrap_c{
+    background-color: #fff;
+    padding-top: 20rpx;
+    margin-top: 20rpx;
+  }
+/* 底线样式 */
+  .endview{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #999;
   }
