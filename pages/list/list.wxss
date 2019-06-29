@@ -30,6 +30,7 @@
     box-sizing: border-box;
     padding: 0 20rpx 16rpx 20rpx;
     overflow: hidden;
+    text-align: right;
     /* border-bottom: 2rpx solid #e8e8ed; */
   }
   .prolist_title{
@@ -50,6 +51,10 @@
     height: 36rpx;
     color: #e93b3d;
     min-width: 80rpx;
+    text-align: right;
+  }
+  .text_p{
+    text-align: right;
   }
   .prolist_other{
     font-size: 24rpx;

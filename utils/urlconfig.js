@@ -8,7 +8,7 @@ const interfaces = {
     // homepage : domain + "/api/profiles/homepage",
     homepage : domain + "/homepage",//主页
 
-    homeMore : domain + '/produtc/list/page',
+    homeMore : domain + '/produtc/list/page',//更多
 
     // productions : domain + "/api/profiles/productions",
     productions : domain + "/classify/list",//分类

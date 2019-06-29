@@ -159,6 +159,16 @@
   /*  */
   .hd_img{
     width: 33%;
+    /* border: 1rpx solid #f7f7f7; */
+    /* box-sizing: border-box; */
+  }
+  .box{
+    border: 1rpx solid #fafafa;
+    border-radius: 4rpx;
+       /* border-bottom: 8rpx solid #f7f7f7; */
+    box-sizing: border-box;
+    /* border-top: 0; */
+    /* color: rgb(0, 0, 0); */
   }
 
   .xl_sx{
@@ -166,6 +176,7 @@
   }
   .g_conter{
     margin: 0  auto;
+    margin-bottom: 20rpx;
     /* margin-top: 20rpx; */
     
     text-align: center;
@@ -175,6 +186,9 @@
     background-color: #fff;
     padding-top: 20rpx;
     margin-top: 20rpx;
+    /* padding: 20rpx; */
+    /* padding-bottom: 20rpx; */
+    /* margin-bottom: 20rpx; */
   }
 /* 底线样式 */
   .endview{
@@ -184,4 +198,7 @@
     text-align: center;
     font-size: 24rpx;
     color: #999;
+  }
+  .text{
+    
   }

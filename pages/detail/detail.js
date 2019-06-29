@@ -67,8 +67,6 @@ Page({
         url:interfaces.productionDetail,
         data:{productId:options.id},
         success:res=>{
-          // data才是我们的数据
-          // console.log(res.data)
           this.setData({
             partData:res.data
           })

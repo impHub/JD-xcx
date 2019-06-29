@@ -10,7 +10,7 @@
           <text>{{item.title}}</text>
         </view>
         <view class='prolist_price'>
-          <text>¥ {{item.price}}</text>
+          <text class="text_p">¥ {{item.price}}</text>
         </view>
         <!-- <view class='prolist_other'>
           <text class='prolist_conmment'>{{item.comment}}条评价</text>
