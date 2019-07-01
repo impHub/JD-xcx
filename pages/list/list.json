@@ -2,6 +2,6 @@
   "usingComponents": {
     "van-card": "../.././distt/card/index"
   },
-  "enablePullDownRefresh":true,
+
   "backgroundTextStyle":"dark"
 }
