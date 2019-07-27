@@ -50,7 +50,7 @@
           <view class="hd_img" style="display:inline-block;" bindtap="Detail" data-index='{{index}}'>
             <view class="page-column">
               <image src="{{item.productImg}}" mode="aspectFit" />
-              <text style="color:#141415;">{{item.productName}}</text>
+              <text style="color:#141415;font-size:27rpx;">{{item.productName}}</text>
               <text>{{item.productPrice}}</text>
             </view>
           </view>
@@ -71,7 +71,7 @@
           <view class="hd_img" style="display:inline-block;" bindtap="activity" data-index='{{index}}'>
             <view class="page-column">
               <image src="{{item.productImg}}" mode="aspectFit" />
-              <text style="color:#141415;">{{item.productName}}</text>
+              <text style="color:#141415;font-size:27rpx;">{{item.productName}}</text>
               <text>{{item.productPrice}}</text>
             </view>
           </view>
