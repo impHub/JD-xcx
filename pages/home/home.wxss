@@ -134,8 +134,14 @@
     padding:20rpx;
   }
   .page-column image{
-    width:170rpx;
-    height:170rpx;
+    /* width:170rpx;
+    height:170rpx; */
+    width:200rpx;
+    height:200rpx;
+  }
+  .page-column .img_HW{
+    width:270rpx;
+    height:270rpx;
   }
   .page-column text{
     font-size:32rpx;
@@ -158,9 +164,13 @@
   }
   /*  */
   .hd_img{
+    
     width: 33%;
     /* border: 1rpx solid #f7f7f7; */
     /* box-sizing: border-box; */
+  }
+  .sl_img{
+    width:50%;
   }
   .box{
     border: 1rpx solid #fafafa;
@@ -201,4 +211,8 @@
   }
   .text{
     
+  }
+  .img_HW{
+    width: 100%;
+    height: 100%;
   }

@@ -40,7 +40,7 @@
       {
         "pagePath": "pages/cart/cart",
         "text": "购物车",
-        "iconPath": "image/cart.png",
+        "iconPath": "image/ccart_selected.png",
         "selectedIconPath": "image/cart_selected.png"
       },
       {

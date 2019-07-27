@@ -83,9 +83,9 @@
       <view class="g_conter">更多商品</view>
       <view class="xl_sx">
         <block wx:for="{{more}}" wx:key="index">
-          <view class="hd_img box" style="display:inline-block;" bindtap="more" data-index='{{index}}'>
+          <view class="sl_img box" style="display:inline-block;" bindtap="more" data-index='{{index}}'>
             <view class="page-column">
-              <image src="{{item.productImg}}" mode="aspectFit" />
+              <image class="img_HW" src="{{item.productImg}}" mode="aspectFit" />
               <text style="color:#141415;font-size:27rpx;">{{item.productNameS}}</text>
               <text style="color:#df2b21;">￥{{item.productPrice}}</text>
             </view>
