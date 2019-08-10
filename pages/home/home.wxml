@@ -19,7 +19,10 @@
     <!-- <view class="content-scroll"> -->
     <!-- 轮播图 -->
     <view class="indicator-wrap">
-      <swiper indicator-dots="{{indicatordots}}" vertical="{{vertical}}" autoplay="{{interval}}" duration="{{duration}}" interval='{{interval}}' circular="true" indicator-color="rgba(255.255.255.3)" indicator-active-color="#fff" style="width:100%;height:425rpx;">
+      <swiper indicator-dots="{{indicatordots}}" vertical="{{vertical}}"
+       autoplay="{{interval}}" duration="{{duration}}" interval='{{interval}}'
+        circular="true" indicator-color="rgba(255,255,255,0.4)" indicator-active-color="rgba(255,255,255,0.9)"
+         style="width:100%;height:375rpx;">
         <block wx:for="{{swipers}}" wx:key="index">
           <swiper-item>
             <image mode="aspectFill" class="swiper-item" src="{{item.image}}" />

@@ -41,10 +41,10 @@
 
     </view>
 
-    <!-- 加入购物车 -->
-    <view class="btn_bar" >
+    <!-- 加入购物车 --> <!-- 数量图标    不能加回车-->
+    <!-- <view class="btn_bar" >
         <view class="icon_cart" bindtap="add">
-        <!-- 数量图标    不能加回车-->
+        
             <text class="badge" wx:if="{{badgeCount > 0}}">{{badgeCount}}</text>
 
             <image src="/image/cart.png" />
@@ -53,7 +53,29 @@
         <view class="cart_btn">
             <button bindtap="addCart">加入购物车</button>
         </view>
-    </view>
+    </view> -->
+<!-- 新加入购物车 -->
+    <van-goods-action>
+  <van-goods-action-icon
+    icon="chat-o"
+    text="客服"
+    bind:click="popBaitiaoView"
+  />
+  <van-goods-action-icon
+    icon="cart-o"
+    text="购物车"
+    bind:click="add"
+  />
+  <van-goods-action-button
+    text="加入购物车"
+    type="warning"
+    bind:click="addCart"
+  />
+  <van-goods-action-button
+    text="立即购买"
+    bind:click="onClickButton"
+  />
+</van-goods-action>
 
     <!-- iou组件 遍历白条信息 -->
     <!-- <iou 
@@ -80,7 +102,10 @@
       <!-- <block wx:for="{{imgDetail}}">
         <view>{{item}}</view>
       </block> -->
-      <image id="imgs" wx:for="{{imgDetail}}" wx:key="index" src="{{item}}" data-index='{{index}}' bindtap='previewImage' class='fade_in' mode='widthFix'></image>
+      <!-- <view class="img_mg"> -->
+          <image id="imgs" wx:for="{{imgDetail}}" wx:key="index" src="{{item}}" data-index='{{index}}' bindtap='previewImage' class='fade_in' mode='widthFix'></image>
+      <!-- </view> -->
+      
     <!-- </view> -->
     <!--  -->
 </view>

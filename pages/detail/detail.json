@@ -2,6 +2,9 @@
   "usingComponents": {
     "infocell":"/components/infocell/infocell",
     "iou":"/components/IOU/iou",
-    "buy":"/components/buy/buy"
+    "buy":"/components/buy/buy",
+    "van-goods-action": "../.././distt/goods-action/index",
+    "van-goods-action-icon": "../.././distt/goods-action-icon/index",
+    "van-goods-action-button": "../.././distt/goods-action-button/index"
   }
 }

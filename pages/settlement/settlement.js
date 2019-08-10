@@ -19,6 +19,7 @@ Page({
     add:[], //未选中商品缓存
     offer:'',//优惠信息
     orderPrice:'',//优惠后的价格
+    hcKey:false,//是否清楚结算后的缓存
   },
   chooseAddress() {
     let that = this;
@@ -158,10 +159,14 @@ Page({
                         }
                       })
                         console.log(res,'150已支付')
-                        wx.setStorage({
-                          key:'cartInfo',
-                          data:this.data.add
-                        })
+                        // 清除以购买的缓存
+                        if(this.data.hcKey){
+                          wx.setStorage({
+                            key:'cartInfo',
+                            data:this.data.add
+                          })
+                        }
+                        
                         
                       // setTimeout(function() {
                         wx.redirectTo({
@@ -227,52 +232,101 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.id,'options')
+    console.log(app.globalData.commodity,'支付全局')
+
+    const commodity = [];
+    console.log(commodity[0]);
+    commodity.push(app.globalData.commodity)
+    console.log(commodity.length)
+    if(options.id == 7){
+      console.log(options.id)
+      // console.log(commodity);
+      commodity[0].total = 1;
+      commodity[0].isTouchMove = false;
+
+      wx.request({
+        url:interfaces.order,
+        method:'POST',
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        data:{
+          userId:app.globalData.userId,
+          // userId:1,
+          list:JSON.stringify(commodity)
+        },
+        success:res=>{
+          console.log(res.data,'huidiao')
+          // this.data.offer = res.data.promoteMsg;
+          this.setData({
+            offer:res.data.promoteMsg,//优惠信息
+            orderPrice:res.data.orderPrice//优惠后的价格
+          })
+         this.data.orderId = res.data.orderId
+        }
+      })
+      // console.log(arr);
+      // 
+      this.Calculation(commodity)
+
+    }else{
+      wx.getStorage({
+        key: 'cartInfo',
+        success: res => {
+          console.log(res.data)//缓存数据
+  
+          let obj = [];
+          const arr = [];
+          const add = [];
+          console.log()
+          const cartArray = res.data;
+          // console.log(cartArray)
+          cartArray.forEach(res => {
+            if (res.select) {
+              arr.push(res);
+            } else {
+              add.push(res);
+            }
+          })
+          console.log(arr,'arr', add,'add',app.globalData.userId)//分别是选中和没被选中的商品
+          this.data.add = add;
+          obj = arr;
+          console.log(obj,'obj')
+          
+          // 开始请求后台
+          wx.request({
+            url:interfaces.order,
+            method:'POST',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data:{
+              userId:app.globalData.userId,
+              // userId:1,
+              list:JSON.stringify(obj)
+            },
+            success:res=>{
+              this.data.hcKey = true;
+              console.log(res.data,'huidiao')
+              // this.data.offer = res.data.promoteMsg;
+              this.setData({
+                offer:res.data.promoteMsg,//优惠信息
+                orderPrice:res.data.orderPrice//优惠后的价格
+              })
+             this.data.orderId = res.data.orderId
+            }
+          })
+          console.log(arr);
+          // 
+          this.Calculation(arr)
+        }
+      })
+
+    }
+    // console.log(options.obj,'options');
     // 
-    wx.getStorage({
-      key: 'cartInfo',
-      success: res => {
-        let obj = [];
-        const arr = [];
-        const add = [];
-        console.log()
-        const cartArray = res.data;
-        // console.log(cartArray)
-        cartArray.forEach(res => {
-          if (res.select) {
-            arr.push(res);
-          } else {
-            add.push(res);
-          }
-        })
-        console.log(arr,'arr', add,'add',app.globalData.userId)//分别是选中和没被选中的商品
-        this.data.add = add;
-        obj = arr;
-        console.log(obj,'obj')
-        wx.request({
-          url:interfaces.order,
-          method:'POST',
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          data:{
-            userId:app.globalData.userId,
-            // userId:1,
-            list:JSON.stringify(obj)
-          },
-          success:res=>{
-            console.log(res.data,'huidiao')
-            // this.data.offer = res.data.promoteMsg;
-            this.setData({
-              offer:res.data.promoteMsg,
-              orderPrice:res.data.orderPrice
-            })
-           this.data.orderId = res.data.orderId
-          }
-        })
-        
-        this.Calculation(arr)
-      }
-    })
+  
     // 
     console.log(app.globalData.userId,'USERID')
     // wx.request({

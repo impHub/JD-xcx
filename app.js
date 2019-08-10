@@ -106,6 +106,7 @@ App({
   globalData: {
     userInfo: null,
     openId:null,
-    userId:null
+    userId:null,
+    commodity:null
   }
 })

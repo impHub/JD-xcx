@@ -57,8 +57,10 @@
   }
   .list_img{
     margin: 0 auto;
-    width: 150rpx;
-    height: 150rpx;
+    /* width: 150rpx;
+    height: 150rpx; */
+    width: 110rpx;
+    height: 110rpx;
   }
   .list_text{
     text-align: center;

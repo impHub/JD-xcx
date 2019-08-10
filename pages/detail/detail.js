@@ -1,4 +1,5 @@
 const interfaces = require('../../utils/urlconfig')
+const app = getApp();
 // pages/detail/detail.js
 Page({
   /**
@@ -17,6 +18,20 @@ Page({
     hideBuy:true,
     badgeCount:0,
     imgDetail:[], //图片展示
+  },
+  // 立即购买
+  onClickButton(){
+    // if(this.data.totalCount >0){
+      
+      console.log(this.data.partData,'立即购买');
+      // 立即购买商品数据存入全局
+      app.globalData.commodity = this.data.partData;
+      console.log(app.globalData.commodity,'全局')
+      wx.navigateTo({
+        //   前面时路径        
+        url:"/pages/settlement/settlement?id=" + 7
+      })
+    // }
   },
 
   // 点击图片

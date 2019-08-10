@@ -28,7 +28,7 @@ Page({
     vertical: false,
     autoplay: true,
     duration: 500,
-    interval: 3000
+    interval: 4000
   },
 
   /**
