@@ -1,7 +1,7 @@
 <view class="contant">
   <!-- 优惠活动 -->
-  <view wx:if="{{offer}}">
-    <van-notice-bar scrollable="false" text="{{offer}}" />
+  <view wx:if="{{offer.promoteMsg}}">
+    <van-notice-bar scrollable="false" text="{{offer.promoteMsg}}" />
   </view>
   
   <!-- 收货地址 -->
@@ -19,8 +19,29 @@
     </block> -->
   <!--  -->
   <block wx:for="{{cartArray}}" wx:key="{{index}}">
-    <van-card num="{{item.total}}" price="{{item.price}}" desc="" title="{{item.title}}" thumb="{{item.loopImgUrl[0]}}" />
+    <van-card 
+    num="{{item.total}}" 
+    price="{{item.price}}" 
+    desc="" 
+    title="{{item.title}}" 
+    thumb="{{item.loopImgUrl[0]}}" />
   </block>
+  <!--  -->
+
+
+  <view class="payWrap">
+    <text class='title7'>运费 :</text>
+    <text class='desc'>{{offer.transportPay}}</text>
+</view>
+<!-- 赠品 -->
+<view class="payWrap mt" wx:if="{{offerKey}}">
+    <text class='title7'>赠品 :</text>
+    <text class='desc'>{{offer.gift}}</text>
+</view>
+
+
+
+  <!--  -->
   <!-- <text>总价：{{totalMoney}}</text> -->
   <!-- 结算样式 -->
   <view class="fixBar">
@@ -34,7 +55,8 @@
     <!-- 总价 -->
     <view class="total">
       <text>合计</text>
-      <text class="money">￥{{orderPrice}}</text>
+      <text class="money">￥{{offer.orderPrice}}</text> 
+      <text wx:if="{{offer.discount}}" class="Ymoney">已优惠:{{offer.discount}}</text>
     </view>
     <!-- 结算按钮 -->
     <view class="btn_amount">

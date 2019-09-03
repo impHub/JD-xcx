@@ -15,6 +15,10 @@ Component({
       desc:{
         type:String,
         value:''
+      },
+      name:{
+        type:String,
+        value:''
       }
   },
 

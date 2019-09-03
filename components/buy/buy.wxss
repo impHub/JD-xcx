@@ -14,8 +14,8 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    min-height: 600rpx;
-    max-height: 800rpx;
+    min-height: 700rpx;
+    max-height: 750rpx;
     background-color: #fff;
   }
   .buy_body{
@@ -35,13 +35,14 @@
     width: 100%;
   }
   .pop_btn button {
+    display: inline-block;
     font-size: 32rpx;
     height: 100rpx;
     line-height: 100rpx;
     border-radius: 0;
     background: #e4393c;
     color: #fff;
-    width: 100%;
+    width: 50%;
   }
   .buy_header{
     height: 150rpx;
@@ -85,4 +86,9 @@
   }
   .buy_body .amount{
     float: right;
+  }
+  .buy_btn button{
+    /* margin-right: 10rpx;
+    margin-left: 10rpx; */
+    margin: 10rpx;
   }

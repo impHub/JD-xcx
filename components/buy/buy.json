@@ -1,6 +1,10 @@
 {
   "component": true,
   "usingComponents": {
-    "amount":"/components/amount/amount"
+    "amount":"/components/amount/amount",
+    "van-button": "../.././distt/button/index",
+    "van-goods-action": "../.././distt/goods-action/index",
+    "van-goods-action-icon": "../.././distt/goods-action-icon/index",
+    "van-goods-action-button": "../.././distt/goods-action-button/index"
   }
 }

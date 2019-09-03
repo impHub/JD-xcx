@@ -10,7 +10,10 @@
     "pages/bought/bought",
     "pages/service/service",
     "pages/hot/hot",
-    "pages/paid/paid"
+    "pages/paid/paid",
+    "pages/test/test",
+    "pages/class/class",
+    "pages/lists/lists"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -32,7 +35,7 @@
         "selectedIconPath": "image/index_selected.png"
       },
       {
-        "pagePath": "pages/category/category",
+        "pagePath": "pages/test/test",
         "text": "分类",
         "iconPath": "image/product.png",
         "selectedIconPath": "image/product_selected.png"

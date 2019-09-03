@@ -11,15 +11,20 @@ Page({
    */
   data: {
     cartArray: [],
+    // 全部优惠信息
+    offer:{},
     totalMoney: 0,
     text: '收货地址',
     details:'',//详细信息
     orderId:'',
     key:false,  //是否填写收货信息
     add:[], //未选中商品缓存
-    offer:'',//优惠信息
-    orderPrice:'',//优惠后的价格
+    // offer:'',//优惠信息
+    // orderPrice:'',//优惠后的价格
     hcKey:false,//是否清楚结算后的缓存
+    // transportPay:'',//邮费
+    // discount:0,//优惠金额
+    offerKey:false,//是否显示赠品
   },
   chooseAddress() {
     let that = this;
@@ -239,7 +244,9 @@ Page({
     console.log(commodity[0]);
     commodity.push(app.globalData.commodity)
     console.log(commodity.length)
+    // options.id == 7 表示从商品详情页跳转的
     if(options.id == 7){
+      
       console.log(options.id)
       // console.log(commodity);
       commodity[0].total = 1;
@@ -257,11 +264,21 @@ Page({
           list:JSON.stringify(commodity)
         },
         success:res=>{
+          let gift = res.data.gift;
+          if(gift.length > 1){
+            //有赠品时
+            this.setData({
+              offerKey:true
+            })
+          }
+          
           console.log(res.data,'huidiao')
           // this.data.offer = res.data.promoteMsg;
           this.setData({
-            offer:res.data.promoteMsg,//优惠信息
-            orderPrice:res.data.orderPrice//优惠后的价格
+            offer:res.data,//所有优惠信息
+            // transportPay:res.data.transportPay,//邮费
+            // // offer:res.data.promoteMsg,//优惠信息
+            // orderPrice:res.data.orderPrice//优惠后的价格
           })
          this.data.orderId = res.data.orderId
         }
@@ -307,12 +324,21 @@ Page({
               list:JSON.stringify(obj)
             },
             success:res=>{
+              let gift = res.data.gift;
+          if(gift.length > 1){
+            //有赠品时
+            this.setData({
+              offerKey:true
+            })
+          }
               this.data.hcKey = true;
               console.log(res.data,'huidiao')
               // this.data.offer = res.data.promoteMsg;
               this.setData({
-                offer:res.data.promoteMsg,//优惠信息
-                orderPrice:res.data.orderPrice//优惠后的价格
+                offer:res.data,//所有优惠信息
+                // transportPay:res.data.transportPay,//邮费
+                // // offer:res.data.promoteMsg,//优惠信息
+                // orderPrice:res.data.orderPrice//优惠后的价格
               })
              this.data.orderId = res.data.orderId
             }

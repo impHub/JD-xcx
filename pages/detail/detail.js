@@ -7,6 +7,7 @@ Page({
    */
   data: {
     // 装的是当前点进来时那个商品的数据
+    arrid:0,
     partData:null,
     baitiao:null,
     // 最终的白条信息
@@ -18,6 +19,12 @@ Page({
     hideBuy:true,
     badgeCount:0,
     imgDetail:[], //图片展示
+    pageArr:[
+    {sfName:'体验',id:3},
+    {sfName:'季度',id:4},
+    {sfName:'半年',id:5},
+    {sfName:'包年',id:6},
+  ]
   },
   // 立即购买
   onClickButton(){
@@ -28,7 +35,7 @@ Page({
       app.globalData.commodity = this.data.partData;
       console.log(app.globalData.commodity,'全局')
       wx.navigateTo({
-        //   前面时路径        
+        //   前面时路径         // 7这个值传过去表示是从detail跳转的
         url:"/pages/settlement/settlement?id=" + 7
       })
     // }
@@ -58,18 +65,16 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  importantData(id){
     // 得到穿来的商品ID
-    console.log(options.id,'id det')
+    // this.data.id = options.id;
+    console.log(id,'id det')
       wx.showLoading({
         title:'加载中....',
       })
       wx.request({
         url:interfaces.detailImg,
-        data:{productId:options.id},
+        data:{productId:id},
         success:res=>{
           console.log(res.data)
           this.setData({
@@ -80,11 +85,14 @@ Page({
       })
       wx.request({
         url:interfaces.productionDetail,
-        data:{productId:options.id},
+        data:{productId:id},
         success:res=>{
           this.setData({
-            partData:res.data
+            arrid :id,
+            partData:res.data,
+            pageArr:res.data.category
           })
+          console.log(res.data)
 
 
           // // 循环遍历 
@@ -107,6 +115,14 @@ Page({
       })
 
       
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    console.log(7> options.id >2,'7777');
+    // if( 7> options.id >2)
+    this.importantData(options.id)
   },
 // 把组件注册事件重新定义
   popBaitiaoView(){
@@ -260,6 +276,17 @@ Page({
     this.setData({
       badgeCount:index.length
     })
+  },
+
+  //接受子组件的值
+  classF(e){
+    console.log(e.detail,'classIfication')
+    // this.data.arrid = e.detail;
+    
+    this.setData({
+      arrid :e.detail
+    })
+    this.importantData(e.detail)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -37,6 +37,12 @@ Page({
 
   
   },
+  btnNav(){
+    // console.log('调整')
+    wx.switchTab({
+      url: "/pages/home/home"
+    })
+  },
 //增减组件事件
 getCount(e){
   

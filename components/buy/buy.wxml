@@ -1,36 +1,46 @@
 <view class="popupDom" hidden="{{hideBuy}}" data-item='close' catchtap="hideBaitiaoView">
     <view class="pop_main">
         <view class="buy_header">
-        <!--   图片 -->
+            <!-- 图片 -->
             <view class="head_img">
                 <image src="{{partData.loopImgUrl[0]}}" />
             </view>
-        <!--  -->
-        <view class="info">
-            <!-- 价格  数量-->
-            <text class="price">￥{{partData.price}}</text>
-            <text class="selcount">已选{{partData.count}}件</text>
-        </view>
-        <!-- 关闭按钮 -->
-        <text data-item='close' catchtap="hideBaitiaoView">x</text>
-        </view>
             <!--  -->
-            <view class="buy_body">
-                <text>数量</text>
-                
-                <view class="amount">
-
-                    <amount 
-                    bind:inputChangHandle="getcount" 
-                    count="{{partData.count}}"></amount>
-                    <!-- {{partData.count}} -->
-
-                    
-                </view>
+            <view class="info">
+                <!-- 价格  数量 -->
+                <text class="price">￥{{partData.price}}</text>
+                <text class="selcount">已选{{partData.count}}件</text>
             </view>
-            <!--  -->
-                <view class="pop_btn">
-                    <button catchtap="buy">加入购物车</button>
-                </view>
+            <!-- 关闭按钮 -->
+            <text data-item='close' catchtap="hideBaitiaoView">x</text>
+        </view>
+        <!-- 按钮 -->
+        <view class="buy_btn">
+            <van-button catchtap="classF" wx:for="{{cartArr}}" size="small" data-item='{{item.productId}}' type="{{item.productId == arrid ? 'danger':'default'}}">
+                {{item.productNameS}}
+            </van-button>
+            <!-- <van-button size="mini" type="danger">体验</van-button>
+            <van-button plain  size="mini" type="danger">季度</van-button>
+            <van-button plain  size="mini" type="danger">半年</van-button>
+            <van-button plain  size="mini" type="danger">包年</van-button> -->
+        </view>
+        <!-- 数量加减组件 -->
+        <view class="buy_body">
+            <text>数量</text>
+            <view class="amount">
+                <!-- 加减组件 -->
+                <amount bind:inputChangHandle="getcount" count="{{partData.count}}"></amount>
+                <!-- {{partData.count}} -->
+            </view>
+        </view>
+        <!--  -->
+        <view class="pop_btnn">
+            <van-goods-action>
+                <van-goods-action-button catchtap="buy" text="加入购物车" type="warning"  />
+                <van-goods-action-button catchtap='onClickButton' text='立即购买' />
+            </van-goods-action>
+            <!-- <button catchtap="buy">加入购物车</button>
+            <button catchtap="buy">立即购买</button> -->
+        </view>
     </view>
 </view>

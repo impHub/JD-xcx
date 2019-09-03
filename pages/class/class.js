@@ -84,8 +84,7 @@ Page({
       wx.showLoading({
         title:'加载中....'
       })
-      // this.http(options.id);
-      this.http(1);
+      this.http(options.id);
      
   },
 

@@ -30,6 +30,26 @@ Page({
     duration: 500,
     interval: 4000
   },
+  //搜索
+  search(e){
+    console.log(e.detail.value);
+    let val = e.detail.value;
+    if(val){
+      wx.navigateTo({
+        //   前面时路径        id时传过去的变量 
+        url: "/pages/lists/lists?text=" + val
+      })
+    }
+  
+
+    // wx.request({
+    //   url:interfaces.homeSearch,
+    //   data:{keyWords:'油面'},
+    //   success:res => {
+    //     console.log(res.data);
+    //   }
+    // })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -131,7 +151,7 @@ Page({
 
     if (e.currentTarget.dataset.index == 0) {
       wx.switchTab({
-        url: "/pages/category/category"
+        url: "/pages/test/test"
       })
     } else {
       wx.navigateTo({

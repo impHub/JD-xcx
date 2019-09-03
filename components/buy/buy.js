@@ -13,7 +13,14 @@ Component({
     //白条数据
     partData:{
       type:Object
+    },
+    cartArr:{
+      type:Array
+    },
+    arrid:{
+      type:Number,
     }
+    
   },
 
   /**
@@ -27,6 +34,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    classF(e){
+
+      console.log('btn',e.target.dataset.item)
+
+      var data = e.target.dataset.item;
+      this.triggerEvent('classF',data)
+    },
     hideBaitiaoView(e){
       // console.log('guabi',e.target.dataset)
       if(e.target.dataset.item == 'close'){
@@ -48,6 +62,9 @@ Component({
         hideBuy:true
       })
       this.triggerEvent('buy')
+    },
+    onClickButton(){
+      this.triggerEvent('onClickButton')
     }
   }
 })

@@ -7,7 +7,7 @@
     <!-- 搜索框 -->
     <view class="search-input">
       <image class="search-icon" src="../../image/ath.png" mode='aspectFit' />
-      <input class="search-text" placeholder="搜索商品" />
+      <input class="search-text" bindconfirm="search" placeholder="搜索商品" />
     </view>
     <!-- 右图标 -->
     <view class="scan">
@@ -34,7 +34,7 @@
     <view class='big-logo'>
       <block wx:for='{{logos}}' wx:key="index">
         <view class='logoinfo' bindtap='add' data-index='{{index}}'>
-          <image style='width:100rpx; height:100rpx' src='{{item.image}}' mode='aspectFit'></image>
+          <image style='width:120rpx; height:120rpx' src='{{item.image}}' mode='aspectFit'></image>
           <text class='logotext'>{{item.title}}</text>
         </view>
       </block>

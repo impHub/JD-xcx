@@ -5,7 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:19,
+    danger:'default',
+    arr:[19,29,39,49,59]
   
+  },
+  btn(e){
+            //条件返回true false,?true1:false:0;
+    var c = 5>3?1:0;
+    console.log(c)
+    console.log(e)
+    console.log(e.target.dataset.item)
+    
+    this.data.danger = 'warning';
+    this.setData({
+      id:e.target.dataset.item
+      // danger:'warning'
+    })
   },
 
   /**

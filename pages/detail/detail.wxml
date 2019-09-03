@@ -33,10 +33,11 @@
         </infocell>
 
     <!-- 已选  title对应infocell.js里的title 不填就为title默认值-->
+
         <infocell 
         bind:popView='popBuyView'
         title="已选"
-        desc='{{partData.count}}件'>
+        desc='{{partData.title}} * {{partData.count}}件'>
         </infocell>
 
     </view>
@@ -87,9 +88,23 @@
 
     
     <!-- buy组件 -->
-    <buy bind:buy="addCart" bind:getcount="getcount"
+    <van-transition 
+    name="fade" 
+    show="{{ !hideBuy }}" 
+     duration="{{ { enter: 300, leave: 1000 } }}"
+    custom-class="block">
+  <buy bind:buy="addCart" 
+    bind:onClickButton="onClickButton"
+    bind:getcount="getcount"
+    bind:classF='classF'
     hideBuy="{{hideBuy}}" 
-    partData="{{partData}}"></buy>
+    partData="{{partData}}"
+    cartArr='{{pageArr}}'
+    arrid="{{arrid}}"
+    ></buy>
+
+</van-transition>
+    
     <!-- 图片 -->
         <!-- <view id='col'> -->
       <view class="weui-loadmore weui-loadmore_line" >

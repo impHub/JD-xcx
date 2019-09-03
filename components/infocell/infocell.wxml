@@ -1,8 +1,9 @@
 <!-- 已选支付组件 -->
-<view class="payWrap">
+<view class="payWrap" bindtap='popView'>
 <!-- properties里的title desc -->
     <text class='title'>{{title}}</text>
     <text class='desc'>{{desc}}</text>
+    <text wx:if="{{name}}" class="">规格：{{name}}</text>
     <!-- 在组件绑定点击事件 -->
-    <text class='icon' bindtap='popView'>...</text>
+    <text class='icon'>...</text>
 </view>

@@ -21,8 +21,8 @@ Page({
       wx.showNavigationBarLoading();
                // 请求数据
      wx.request({
-      url:interfaces.productionsList,
-      data:{classificationId:e},
+      url:interfaces.homeSearch,
+      data:{keyWords:e},
       success:res=>{
         // console.log(res.data)
           this.setData({
@@ -63,10 +63,10 @@ Page({
       let index = e.currentTarget.dataset.index;
       console.log(this.data.prolist,'')
 
-    console.log(this.data.prolist[index].id,'list id')
+    console.log(this.data.prolist[index].productId,'list id')
     wx.navigateTo({
       //   前面时路径        id时传过去的变量 
-      url:"/pages/detail/detail?id=" + this.data.prolist[index].id 
+      url:"/pages/detail/detail?id=" + this.data.prolist[index].productId 
     })
     
   },
@@ -85,7 +85,7 @@ Page({
         title:'加载中....'
       })
       // this.http(options.id);
-      this.http(1);
+      this.http(options.text);
      
   },
 

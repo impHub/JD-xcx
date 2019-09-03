@@ -1,0 +1,36 @@
+<view class='prolist'>
+  <div>listtttt</div>
+ <block wx:for='{{prolist}}' wx:key="{{index}}">
+                                            <!-- 传参index在点击函数里接收，通过路由传到detail -->
+    <view class='prolist_item' bindtap='switchProlistDetail' data-index='{{index}}'>
+      <view class='prolist_cover'>
+        <image mode="aspectFit" src='{{item.cover}}'></image>
+      </view>
+      <view class='prolist_info'>
+        <view class='prolist_title'>
+          <text>{{item.title}}</text>
+        </view>
+        <view class='prolist_price'>
+          <text class="text_p">¥ {{item.price}}</text>
+        </view>
+        <!-- <view class='prolist_other'>
+          <text class='prolist_conmment'>{{item.comment}}条评价</text>
+          <text class='prolist_rate'>好评率{{item.rate}}</text>
+        </view> -->
+      </view>
+    </view>
+
+    <!--  -->
+    <!-- <van-card
+  num="2"
+  price="{{item.price}}"
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ item.cover }}"
+/> -->
+    <!--  -->
+  </block>
+  <view class='endview' wx:if='{{noData}}'>
+    <text>没有更多数据</text>
+  </view>
+</view>

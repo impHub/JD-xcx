@@ -5,6 +5,7 @@
     "buy":"/components/buy/buy",
     "van-goods-action": "../.././distt/goods-action/index",
     "van-goods-action-icon": "../.././distt/goods-action-icon/index",
-    "van-goods-action-button": "../.././distt/goods-action-button/index"
+    "van-goods-action-button": "../.././distt/goods-action-button/index",
+    "van-transition": "../.././distt/transition/index"
   }
 }

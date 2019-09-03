@@ -10,6 +10,8 @@ const interfaces = {
 
     homeMore : domain + '/product/list/page',//更多
 
+    homeSearch:domain + '/product/search',//搜索功能
+
     // productions : domain + "/api/profiles/productions",
     productions : domain + "/classify/list",//分类
     
