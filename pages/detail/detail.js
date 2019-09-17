@@ -26,6 +26,13 @@ Page({
     {sfName:'包年',id:6},
   ]
   },
+  //子点击关闭传来的值
+  hideBaitiaoView(e){
+    console.log(e.detail,'接受子传来的值')
+    this.setData({
+      hideBuy:e.detail
+    })
+  },
   // 立即购买
   onClickButton(){
     // if(this.data.totalCount >0){
@@ -120,6 +127,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('options99')
     console.log(7> options.id >2,'7777');
     // if( 7> options.id >2)
     this.importantData(options.id)
@@ -154,7 +162,7 @@ Page({
   },
 
   getcount(e){
-    // console.log(e,'detail.js')
+    console.log(e,'detail.js触发')
     //获取到数量
     let deta = e.detail;
     // console.log(this.data.partData)

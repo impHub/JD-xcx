@@ -1,0 +1,26 @@
+/* pages/card/card.wxss */
+.card_wapr{
+    /* display: flex; */
+    /* justify-content: center; */
+}
+.van-button{
+    display: block;
+    width: 100%;
+    /* width: 600rpx; */
+    /* margin: 0 auto; */
+    /* margin: 20rpx; */
+}
+.wapr{
+    width: 90%;
+    margin: 0 auto;
+}
+.inp{
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}
+.van-cell__title{
+    color: #999;
+}
+.van-cell__value{
+    color: brown;
+}

@@ -20,6 +20,9 @@ App({
         traceUser:true
       })
     }
+    // 获取用户积分信息
+ 
+
     // 登录
     console.log('jl')
     wx.login({
@@ -39,6 +42,15 @@ App({
 
             this.globalData.openId = res.data.openid //返回openid
             this.globalData.userId = res.data.userid
+            // 获取用户积分信息
+            wx.request({
+              url:interfaces.card,
+              data:{userId:res.data.userid},
+              success:res=>{
+                console.log(res.data.userVoucher);
+                this.globalData.card = res.data.userVoucher;
+              }
+            })
             
             console.log(this.globalData,'全局')
             // wx.request({
@@ -107,6 +119,7 @@ App({
     userInfo: null,
     openId:null,
     userId:null,
-    commodity:null
+    commodity:null,
+    card:0,//积分
   }
 })

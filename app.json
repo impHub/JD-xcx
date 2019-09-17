@@ -13,7 +13,8 @@
     "pages/paid/paid",
     "pages/test/test",
     "pages/class/class",
-    "pages/lists/lists"
+    "pages/lists/lists",
+    "pages/card/card"
   ],
   "window": {
     "backgroundTextStyle": "light",

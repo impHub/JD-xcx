@@ -113,3 +113,6 @@
   .mt{
     margin-top: 30rpx;
   }
+.van-field__input{
+  font-size: 27rpx;
+}

@@ -97,6 +97,7 @@
     bind:onClickButton="onClickButton"
     bind:getcount="getcount"
     bind:classF='classF'
+    bind:hideBaitiaoView='hideBaitiaoView'
     hideBuy="{{hideBuy}}" 
     partData="{{partData}}"
     cartArr='{{pageArr}}'

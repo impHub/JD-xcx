@@ -47,6 +47,7 @@ Component({
           this.setData({
             hideBuy:true
           })
+          this.triggerEvent('hideBaitiaoView',this.data.hideBuy)
       }
     },
     

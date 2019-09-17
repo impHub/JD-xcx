@@ -10,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    num:0,
     userInfo: {},
     hasUserInfo: false,
     // 判断这个api能不能使用，返回布尔值
@@ -207,6 +208,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      num:app.globalData.card
+    })
     wx.getSetting({
       success: res => {
         // console.log(res.authSetting['scope.userInfo'],'panduan')

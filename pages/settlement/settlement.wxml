@@ -38,6 +38,29 @@
     <text class='title7'>赠品 :</text>
     <text class='desc'>{{offer.gift}}</text>
 </view>
+<!-- 积分 -->
+<view wx:if="{{card}}">
+  <van-cell-group wx:if="{{cardKey}}">
+  <van-field
+    value="{{ sms }}"
+    type = 'number'
+    bind:change="onChange"
+    center
+    clearable
+    label=""
+    placeholder="剩余{{card}}金豆"
+    border="{{ false }}"
+    use-button-slot
+  >
+    <van-button bindtap='cardBtn' slot="button" size="small" type="primary">确认使用</van-button>
+  </van-field>
+</van-cell-group>
+
+<view class="payWrap" wx:else>
+    <text class='title7'>已使用 :</text>
+    <text class='desc'>{{val}}金豆</text>
+</view>
+</view>
 
 
 

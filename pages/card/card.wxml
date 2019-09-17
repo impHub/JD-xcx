@@ -1,0 +1,23 @@
+<view class="card_wapr">
+       <van-notice-bar scrollable="false" text="金豆抵扣全部费用时最低支付0.01元" />
+    <view class="dy">
+        <van-cell-group>
+            <van-cell title="我的金豆" value="{{num}}" />
+            <!-- <van-cell title="单元格" value="内容" label="描述信息" border="{{ false }}" /> -->
+        </van-cell-group>
+    </view>
+    <view class="inp">
+        <van-cell-group>
+            <van-field
+             value="{{ val }}"
+             placeholder="请输入12位兑换码" 
+             border="{{ false }}" 
+             bind:change="onChange" />
+        </van-cell-group>
+    </view>
+    <view class="wapr">
+        <van-button bindtap='btn' type="primary">点击兑换</van-button>
+    </view>
+
+    <!-- <view bindtap="zf" class="">字符串</view> -->
+</view>

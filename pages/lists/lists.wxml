@@ -3,7 +3,7 @@
                                             <!-- 传参index在点击函数里接收，通过路由传到detail -->
     <view class='prolist_item' bindtap='switchProlistDetail' data-index='{{index}}'>
       <view class='prolist_cover'>
-        <image mode="aspectFit" src='../.././image/classify/jz.png'></image>
+        <image mode="aspectFit" src="{{item.productMainImg}}"></image>
       </view>
       <view class='prolist_info'>
         <view class='prolist_title'>

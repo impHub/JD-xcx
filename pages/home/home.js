@@ -144,20 +144,32 @@ Page({
   },
 
   add(e) {
+    let i = e.currentTarget.dataset.index;
     // wx.request({
     //   url
     // })
     // 跳转
+  
 
-    if (e.currentTarget.dataset.index == 0) {
+    if (i == 0) {
       wx.switchTab({
         url: "/pages/test/test"
       })
-    } else {
-      wx.navigateTo({
-        //   前面时路径        id时传过去的变量 
-        url: "/pages/hot/hot"
+    } else if(i == 1) {
+      wx.switchTab({
+        url: "/pages/test/test?id=" + 3
       })
+  
+    }else if(i == 2) {
+      wx.switchTab({
+        url: "/pages/test/test?id=" + 6
+      })
+  
+    }else if(i == 3) {
+      wx.navigateTo({
+        url: "/pages/card/card"
+      })
+  
     }
 
   },

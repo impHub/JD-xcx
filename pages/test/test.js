@@ -33,6 +33,7 @@ Page({
   http(e,c){
     console.log(e,c)
     if(e){
+      console.log('if')
       // wx.showNavigationBarLoading();
                // 请求数据
      wx.request({
@@ -43,7 +44,7 @@ Page({
           this.setData({
             prolist:res.data
           })
-          console.log(this.data.prolist,'商品详情页数据')
+          console.log(this.data.prolist,'商品详情页数据if')
           // 加载完成关闭转圈圈
           // wx.hideNavigationBarLoading();
           // 加载完关闭三个点
@@ -56,6 +57,7 @@ Page({
       }
   })
     }else{
+      console.log('else')
          // 请求数据
      wx.request({
       url:interfaces.productionsList,
@@ -99,6 +101,14 @@ Page({
     
   // },
   onLoad: function (options) {
+    // 当从其他 nav跳转来时
+    console.log(options,'options.id');
+    if(options.id){
+      this.setData({
+        curIndex : options.id
+      })
+    }
+    
     wx.showLoading({
       title:'加载中....'
     })
@@ -109,6 +119,7 @@ Page({
         "content-type":"application/json"
       },
       success : res=>{
+        // this.http(2)
         // 默认请求id为1的数据
         this.http(this.data.curIndex);
         console.log(res.data)

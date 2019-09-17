@@ -10,6 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    val:"0",//用户输入的值
+    card:0,//积分
     cartArray: [],
     // 全部优惠信息
     offer:{},
@@ -25,6 +27,7 @@ Page({
     // transportPay:'',//邮费
     // discount:0,//优惠金额
     offerKey:false,//是否显示赠品
+    cardKey:true,//输入积分前
   },
   chooseAddress() {
     let that = this;
@@ -125,8 +128,15 @@ Page({
     // }
     // 验证openid和地址
     if(this.data.key){
+      // 数字转换字符串
+      this.data.val =  String(this.data.val);
       let openid = app.globalData.openId;
-      console.log(openid,90)
+      console.log(typeof this.data.val);
+      // console.log(openid,this.data.orderId,this.data.details,90)
+
+
+
+
       wx.request({
         url: interfaces.orderPay,
         method: 'POST',
@@ -136,7 +146,8 @@ Page({
         data: {
           openId: openid,
           addr:this.data.details,
-          orderId:this.data.orderId
+          orderId:this.data.orderId,
+          voucher:this.data.val
         },
         success:res=>{
           console.log(res)
@@ -155,12 +166,21 @@ Page({
                     icon: 'success',
                     duration: 2000,
                     success: res=> {
+                      
                       // 
+                      console.log(app.globalData.userId,this.data.val,Number(this.data.val))
                       wx.request({
                         url:interfaces.paySuccess,
-                        data:{orderId:this.data.orderId},
+                        data:{
+                          orderId:this.data.orderId,
+                          userId:Number(app.globalData.userId),
+                          voucher:Number(this.data.val)
+
+                        },
                         success:res=>{
-                          console.log(res)
+                          console.log(res.data.voucher)
+                          // 抵扣积分后的值
+                          app.globalData.card = res.data.voucher;
                         }
                       })
                         console.log(res,'150已支付')
@@ -229,7 +249,80 @@ Page({
 
 
   },
+  onChange(e){
+    console.log(e.detail)
+    this.data.val = e.detail;
+  },
+  cardBtn(){
+    console.log(this.data.offer.orderPrice,JSON.stringify(app.globalData.commodity));
+    let n = this.data.offer.orderPrice;
 
+    if(this.data.val > this.data.card){
+      wx.showToast({
+        title:'积分不足',
+        duration:2000,
+        icon:"none"
+      })
+
+      console.log('积分不足')
+
+    }else if(this.data.val > n){
+      wx.showToast({
+        title:'积分金额大于结算金额',
+        duration:3000,
+        icon:"none"
+      })
+      console.log('积分金额大于结算金额',this.data.val)//用户使用的积分
+      // console
+    }else{
+      // 
+      console.log(this)
+      let that = this;
+      wx.showModal({
+        title: '',
+        content: '确认使用'+this.data.val + '金豆',
+        success (data) {
+          console.log(data)
+          if (data.confirm) {
+            console.log('可以使用',this)
+      
+            let num = that.data.offer.orderPrice;
+            that.data.offer.orderPrice = num - that.data.val; 
+            that.setData({
+              cardKey:false,
+              offer:that.data.offer,
+              val:that.data.val
+            })
+
+          } else if (data.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+      // 
+
+
+
+     
+      // this.data.val = String(this.data.val);
+      // wx.request({
+      //   url:interfaces.order,
+      //   method:'POST',
+      //   header: {
+      //     "Content-Type": "application/x-www-form-urlencoded"
+      //   },
+      //   data:{
+      //     voucher:this.data.val,
+      //     userId:app.globalData.userId,
+      //     // userId:1,
+      //     list:JSON.stringify(app.globalData.commodity)
+      //   },
+      //   success:res=>{
+      //     console.log(res.data);
+      //   }
+      // })
+    }
+  },
 
 
 
@@ -237,7 +330,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id,'options')
+    // 数字
+    console.log(typeof app.globalData.card);
+    //获取全局积分
+    this.setData({
+      card:app.globalData.card
+    })
+    // this.data.card = app.globalData.card;
+
+    console.log(options.id,'onLoad options')
     console.log(app.globalData.commodity,'支付全局')
 
     const commodity = [];
