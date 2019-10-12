@@ -1,5 +1,6 @@
 // const interfaces = require('../../utils/urlconfig');
-const interfaces = require('../../utils/urlconfig')
+const interfaces = require('../../utils/urlconfig');
+const app = getApp();
 // pages/list/list.js
 Page({
 
@@ -11,7 +12,8 @@ Page({
     // 当前请求的页数 一页展示5条数据
     page:1, size:5,
     //当有数据时显示false
-    noData:false
+    noData:false,
+    grade:0,
     
   },
   
@@ -25,9 +27,9 @@ Page({
       data:{keyWords:e},
       success:res=>{
         // console.log(res.data)
-          this.setData({
-            prolist:res.data
-          })
+          // this.setData({
+          //   prolist:res.data
+          // })
           console.log(this.data.prolist,'商品详情页数据')
           // 加载完成关闭转圈圈
           wx.hideNavigationBarLoading();
@@ -35,8 +37,10 @@ Page({
           wx.stopPullDownRefresh();
       // wx.hideLoading();
           this.setData({
+            prolist:res.data,
             page:1,
-            noData:false
+            noData:false,
+            grade:Number(app.globalData.userscale)
           })
       }
   })
@@ -47,7 +51,8 @@ Page({
       success:res=>{
         // console.log(res.data)
           this.setData({
-            prolist:res.data
+            prolist:res.data,
+            grade:Number(app.globalData.userscale)
           })
           console.log(this.data.prolist,'商品详情页数据')
           // 加载完成关闭动画

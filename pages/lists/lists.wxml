@@ -1,4 +1,8 @@
 <view class='prolist'>
+<van-notice-bar
+  scrollable="false"
+  text="前往'我的钱包'填写激活码即可返利"
+/>
  <block wx:for='{{prolist}}' wx:key="{{index}}">
                                             <!-- 传参index在点击函数里接收，通过路由传到detail -->
     <view class='prolist_item' bindtap='switchProlistDetail' data-index='{{index}}'>
@@ -10,7 +14,7 @@
           <text>{{item.productName}}</text>
         </view>
         <view class='prolist_price'>
-          <text class="text_p">¥ {{item.productPrice}}</text>
+          <text class="text_p">¥{{item.productPrice}}/返利{{grade>1?item.productDeduct2:item.productDeduct1}}元</text>
         </view>
         <!-- <view class='prolist_other'>
           <text class='prolist_conmment'>{{item.comment}}条评价</text>

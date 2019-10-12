@@ -31,6 +31,13 @@ Page({
     // 
 
   },
+  add(e){
+    console.log(e.currentTarget.dataset.item);
+    let item = e.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: "/pages/logistics/logistics?id=" + item.orderId
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

@@ -1,0 +1,27 @@
+/* pages/inquire/inquire.wxss */
+
+.bor{
+    /* border: 1px solid red; */
+}
+.header-value{
+    color: crimson;
+    font-weight: bold;
+}
+.van-cell__value{
+    color: crimson;
+    font-weight: bold;
+    font-size: 32rpx;
+}
+.img{
+    height: 1000rpx;
+    width: 750rpx;
+}
+.bg{
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+}
+.wrpe{
+    width: 100%;
+    height: 100%;
+}

@@ -139,9 +139,11 @@ Page({
   * 记录左侧点击的按钮下标 
   */
   switchRightTab(e) {
+    
+    console.log(this.data.navLeftItems);
     let index = parseInt(e.currentTarget.dataset.index);
     this.setData({
-      curIndex: ++index
+      curIndex: index
     })
     this.http(index)
   },

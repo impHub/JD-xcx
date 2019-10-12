@@ -1,0 +1,15 @@
+<view class="warp">
+<van-search
+ value="{{ value }}"
+ bind:search="onSearch"
+  bind:change="onChange"
+  placeholder="请输入搜索关键词" />
+<block  wx:for="{{arr}}">
+        <view class="payWrap" bind:tap="btn" data-item="{{item}}">
+    <text class='title7'>{{item.productNameS}}:</text>
+    <text class='desc5'>￥{{item.productPrice}}/<text class="desc">返利{{grade>1?item.productDeduct2:item.productDeduct1}}元</text></text>
+    </view>
+</block>
+
+
+</view>

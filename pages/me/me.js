@@ -18,24 +18,46 @@ Page({
   },
   // 实现获取用户信息方法
   getUserInfo(e) {
-    console.log(e)
-    wx.authorize({
-      scope: 'scope.userInfo',
-      success: res => {
-
-        console.log(res, '成功')
-        // console.log(e.detail.userInfo);
-        //把用户授权信息存储到全局
-        app.globalData.userInfo = e.detail.userInfo;
-        this.setData({
-          // 把获取到的信息赋值
-          userInfo: e.detail.userInfo,
-          hasUserInfo: true
-        })
-        // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-        // wx.startRecord()
-      }
-    })
+    // wx.showLoading({
+    //   title: '加载中',
+    //   mask:true
+    // })
+       // 获取用户name
+       wx.request({
+        url:interfaces.userName,
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+          userId: app.globalData.userId,
+          userName:e.detail.userInfo.nickName
+        },
+        success:res=>{
+         console.log(res.data,'interfaces.userName接口')
+         wx.hideLoading();
+         
+        }
+      })
+      // console.log(res, '成功')
+      // console.log(e.detail.userInfo);
+      //把用户授权信息存储到全局
+      app.globalData.userInfo = e.detail.userInfo;
+      this.setData({
+        // 把获取到的信息赋值
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+      // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+      // wx.startRecord()
+    
+    console.log(e.detail.userInfo);
+    // wx.authorize({
+    //   scope: 'scope.userInfo',
+    //   success: res => {
+     
+    //   }
+    // })
 
 
   },
@@ -82,6 +104,12 @@ Page({
           }
         })
         break;
+        case '4':
+          console.log('联系客服')
+          wx.navigateTo({
+            url: '../wallet/wallet',
+          })
+          break;
 
     }
   },

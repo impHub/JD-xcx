@@ -1,0 +1,24 @@
+<!--pages/logistics/logistics.wxml-->
+<view class="wrap">
+    <view wx:if="{{logObj}}" >
+              <view class="payWrap">
+
+    <text class='title7'>{{logObj.ShipperCode}}快递</text>
+    <text class='desc'>运单号:{{logObj.LogisticCode}}</text>
+</view>
+<van-steps
+  steps="{{ logArr }}"
+  active="{{ active }}"
+  direction="vertical"
+  active-color="#ee0a24"
+/>
+    </view>
+    <view class="bg" wx:else>
+    <image class="img" src="../../image/wl.jpg" alt="">
+    </image>
+        <!-- 暂时无法查询到物流信息... -->
+    </view>
+
+
+
+</view>

@@ -27,7 +27,8 @@
          <!-- infocell组件 支付  使用组件-->
     <!-- popView与组件里注册相对应 -->
         <infocell 
-        bind:popView='popBaitiaoView'
+        data-item = '1'
+        bind:popView='popBaitiaoViewk'
         title="客服" 
         desc='{{baitiaoSelectItem.desc}}'>
         </infocell>
@@ -58,8 +59,8 @@
 <!-- 新加入购物车 -->
     <van-goods-action>
   <van-goods-action-icon
-    icon="chat-o"
-    text="客服"
+    icon="goods-collect-o"
+    text="首页"
     bind:click="popBaitiaoView"
   />
   <van-goods-action-icon

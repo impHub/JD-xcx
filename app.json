@@ -14,7 +14,15 @@
     "pages/test/test",
     "pages/class/class",
     "pages/lists/lists",
-    "pages/card/card"
+    "pages/card/card",
+    "pages/logistics/logistics",
+    "pages/wallet/wallet",
+    "pages/dashboard/dashboard",
+    "pages/inquire/inquire",
+    "pages/rebate/rebate",
+    "pages/qrcode/qrcode"
+    
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

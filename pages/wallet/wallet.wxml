@@ -1,0 +1,90 @@
+<view class="card_wapr">
+  
+    
+    <view class="key" wx:if="{{!key}}">   
+        <!-- <van-notice-bar scrollable="false" text="金豆抵扣全部费用时最低支付0.01元" /> -->
+        <view class="dy">
+            <!-- <van-cell-group>
+            <van-cell title="我的金豆" value="{{num}}" />
+            <van-cell title="单元格" value="内容" label="描述信息" border="{{ false }}" />
+        </van-cell-group> -->
+        </view>
+        <view class="inp">
+            <van-cell-group>
+                <van-field value="{{ val }}" placeholder="请输入邀请码" border="{{ false }}" bind:change="onChange" />
+            </van-cell-group>
+        </view>
+        <view class="wapr">
+            <van-button open-type="getUserInfo" bindgetuserinfo="getUserInfo"  type="primary">点击加入</van-button>
+            <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button> -->
+        </view>
+        <!-- <view bindtap="zf" class="">字符串</view> -->
+    </view>
+    <!--  -->
+    <view wx:else>   
+
+ 
+
+        <!-- 已填写邀请码界面 -->
+        <van-grid clickable column-num="2">
+            <van-grid-item  
+             icon="qr" 
+            bind:tap="copy" 
+            text="点击生成邀请码" />
+                <!-- <text>点击复制</text> -->
+                <!-- <view class="title">{{userObj.userNumber}}</view>
+                <view class="text">点击复制邀请码</view> -->
+            <!-- </van-grid-item> -->
+
+            <van-grid-item 
+           
+            class="title"
+            icon="balance-o" 
+            link-type="navigateTo" 
+            text="零钱:{{userObj.userPrice}}元(点击提现)" />
+            <!-- <van-icon name="balance-o" /> -->
+      <!-- <view class="title1">零钱:{{userObj.userPrice}}元</view> -->
+                <!-- <view class="text1">点击提现</view> -->
+            <!-- </van-grid-item> -->
+               <!-- <van-grid-item icon="home-o" 
+                link-type="navigateTo" 
+                url="/pages/dashboard/index" 
+                text="查询流水" /> -->
+        </van-grid>
+
+       <!-- 服务 -->
+    <view class="fw">
+        <!--  -->
+        <!-- <view>服务</view> -->
+        <!--  -->
+        <view>
+            <van-grid clickable column-num="2">
+                <van-grid-item icon="balance-list-o" 
+                link-type="navigateTo" 
+                url="/pages/inquire/inquire" 
+                text="查询流水" />
+                
+                <van-grid-item 
+                icon="contact" 
+                link-type="navigateTo" 
+                url="/pages/dashboard/dashboard" 
+                text="代理信息" />
+            </van-grid>
+        </view>
+    </view>
+           <!-- <van-cell-group>
+  <van-cell title="代理等级" value="{{userObj.userscale}}" />
+</van-cell-group> -->
+
+    </view>
+    <!-- <van-grid> -->
+ <van-grid clickable column-num="1">
+  <van-grid-item
+    icon="home-o"
+    link-type="navigateTo"
+    url="/pages/rebate/rebate"
+    text="商品返利金额查询"
+  />
+ 
+</van-grid>
+</view>

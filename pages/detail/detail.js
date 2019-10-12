@@ -132,11 +132,23 @@ Page({
     // if( 7> options.id >2)
     this.importantData(options.id)
   },
-// 把组件注册事件重新定义
-  popBaitiaoView(){
+  // 客服
+  popBaitiaoViewk(){
     // 跳转到客服
     wx.navigateTo({
       url: '../service/service',
+    })
+  },
+// 把组件注册事件重新定义
+  popBaitiaoView(e){
+    console.log(e);
+    // 跳转到客服
+    // wx.navigateTo({
+    //   url: '../service/service',
+    // })
+
+    wx.switchTab({
+      url: "/pages/home/home"
     })
     //点击之后弹出白条详细信息
     // this.setData({

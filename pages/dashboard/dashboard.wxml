@@ -1,0 +1,25 @@
+<view>
+    <van-cell-group>
+         <van-cell title="我的昵称" value="{{obj.userName}}" />
+        <van-cell title="上级代理" value="{{obj.userHigher}}" />
+        <van-cell title="下级数量" value="{{obj.agencyNum}}" />
+        <van-cell title="下级购买提成" value="{{obj.percentage}}%" />
+        <!-- <van-cell title="" value="{{obj.commission}}%" /> -->
+        <van-cell title="代理等级" value="{{obj.userScale}}" />
+    </van-cell-group>
+ <van-progress percentage="{{obj.experience}}" />
+   
+
+    <!-- <van-circle
+  value="{{ obj.experience }}"
+  layer-color="#eeeeee"
+  color="#ee0a24"
+  text="颜色定制"
+/>
+   <van-circle
+  value="{{ obj.experience }}"
+  layer-color="#eeeeee"
+  color="#ee0a24"
+  text="颜色定制"
+/> -->
+</view>

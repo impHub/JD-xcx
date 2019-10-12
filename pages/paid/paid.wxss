@@ -1,5 +1,25 @@
 /* pages/paid/paid.wxss */
+.bg{
+    background-color: #fafafa;
+}
 .wrap{
-    margin-bottom: 25rpx;
-    border-bottom:2rpx solid #e8e8ed
+    margin-bottom: 45rpx;
+    border-bottom:2rpx solid #e8e8ed;
+}
+.slotW{
+    display: flex;
+    align-items: center;
+    border: 0;
+    justify-content: space-between;
+    /* margin-bottom: 40rpx; */
+}
+.van-hairline--top-bottom{
+    /* margin-bottom: 40rpx; */
+}
+.text{
+    color: darkgrey;
+    font-size: 32rpx;
+}
+.van-cell{
+    border: 0;
 }

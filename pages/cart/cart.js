@@ -1,5 +1,6 @@
 // pages/cart/cart.js
 const app = getApp();
+const interfaces = require('../../utils/urlconfig');
 Page({
 
   /**
@@ -17,26 +18,31 @@ Page({
     authorization:false
   },
   getUserInfo(e){
-    console.log(e)
-    wx.authorize({
-      scope: 'scope.userInfo',
-      success:res=> {
-
-        console.log(res,'成功')
-        // console.log(e.detail.userInfo);
-        //把用户授权信息存储到全局
-        app.globalData.userInfo = e.detail.userInfo;
-        this.setData({
-          // 把获取到的信息赋值
-          authorization:true
-        })
-        // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-        // wx.startRecord()
+    
+    console.log(e,'getUserInfo')
+    wx.request({
+      url:interfaces.userName,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        userId: app.globalData.userId,
+        userName:e.detail.userInfo.nickName
+      },
+      success:res=>{
+       console.log(res.data)
+       
       }
     })
-
-  
+    app.globalData.userInfo = e.detail.userInfo;
+    this.setData({
+      // 把获取到的信息赋值
+      authorization:true
+    })
   },
+
+
   btnNav(){
     // console.log('调整')
     wx.switchTab({

@@ -4,7 +4,13 @@
 const domain = 'https://www.lixikeji.cn/mall';
 // 首页 /login 192.168.31.220:8000/mall/wx/homepage
 const interfaces = {
+    allList:domain + '/product/list',
+
+    userName:domain + '/wx/updateUserName',
+
     rCode:domain + '/voucher/update',//兑换接口
+
+    cardMe:domain + '/user/findMe',//分销信息
 
     card:domain + '/user/findUser',//积分信息
 
@@ -35,6 +41,13 @@ const interfaces = {
     payOrder:domain + '/wx/order/list/pay', //已支付商品信息
 
     paySuccess:domain + '/wx/order/update/paysuccess',//提示后台成功支付
+
+    logIstics:domain + '/wx/order/update/logistics',//快递
+
+    userReg:domain + '/user/registerAgency',//邀请码验证
+
+    inquire:domain + '/wx/deal/findAll',  //流水查询
+
 
     
     

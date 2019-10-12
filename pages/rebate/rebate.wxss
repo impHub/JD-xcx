@@ -1,0 +1,27 @@
+/* pages/rebate/rebate.wxss */
+.payWrap{
+    background: #fff;
+    /* padding: 30rpx 20rpx; */
+    padding: 10px 15px;
+    border-top: 2rpx solid #e8e8ed;
+    border-bottom: 2rpx solid #e8e8ed; 
+    font-size: 28rpx;
+    box-sizing: border-box;
+    /* margin-top: 30rpx; */
+    /* margin-bottom: 30rpx; */
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    /* margin-bottom: 10rpx; */
+    height:110rpx;
+    align-items: center;
+  }
+  .title{
+    display: inline-block;
+    width: 10%;
+    color: #999;
+  }
+  .desc{
+    font-weight: bold;
+    color: #e4393c;
+  }

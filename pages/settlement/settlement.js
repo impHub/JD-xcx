@@ -178,6 +178,7 @@ Page({
 
                         },
                         success:res=>{
+                          console.log(res.data);
                           console.log(res.data.voucher)
                           // 抵扣积分后的值
                           app.globalData.card = res.data.voucher;
@@ -256,72 +257,61 @@ Page({
   cardBtn(){
     console.log(this.data.offer.orderPrice,JSON.stringify(app.globalData.commodity));
     let n = this.data.offer.orderPrice;
-
-    if(this.data.val > this.data.card){
+    console.log(this.data.val,'输入')
+    if(this.data.val == '0'){
       wx.showToast({
-        title:'积分不足',
+        title:'您输入的值为空',
         duration:2000,
         icon:"none"
       })
-
-      console.log('积分不足')
-
-    }else if(this.data.val > n){
-      wx.showToast({
-        title:'积分金额大于结算金额',
-        duration:3000,
-        icon:"none"
-      })
-      console.log('积分金额大于结算金额',this.data.val)//用户使用的积分
-      // console
     }else{
-      // 
-      console.log(this)
-      let that = this;
-      wx.showModal({
-        title: '',
-        content: '确认使用'+this.data.val + '金豆',
-        success (data) {
-          console.log(data)
-          if (data.confirm) {
-            console.log('可以使用',this)
-      
-            let num = that.data.offer.orderPrice;
-            that.data.offer.orderPrice = num - that.data.val; 
-            that.setData({
-              cardKey:false,
-              offer:that.data.offer,
-              val:that.data.val
-            })
-
-          } else if (data.cancel) {
-            console.log('用户点击取消')
+      if(this.data.val > this.data.card){
+        wx.showToast({
+          title:'积分不足',
+          duration:2000,
+          icon:"none"
+        })
+  
+        console.log('积分不足')
+  
+      }else if(this.data.val > n){
+        wx.showToast({
+          title:'积分金额大于结算金额',
+          duration:3000,
+          icon:"none"
+        })
+        console.log('积分金额大于结算金额',this.data.val)//用户使用的积分
+        // console
+      }else{
+        // 
+        console.log(this)
+        let that = this;
+        wx.showModal({
+          title: '',
+          content: '确认使用'+this.data.val + '金豆',
+          success (data) {
+            console.log(data)
+            if (data.confirm) {
+              console.log('可以使用',this)
+        
+              let num = that.data.offer.orderPrice;
+              that.data.offer.orderPrice = num - that.data.val; 
+              that.setData({
+                cardKey:false,
+                offer:that.data.offer,
+                val:that.data.val
+              })
+  
+            } else if (data.cancel) {
+              console.log('用户点击取消')
+            }
           }
-        }
-      })
-      // 
-
-
-
-     
-      // this.data.val = String(this.data.val);
-      // wx.request({
-      //   url:interfaces.order,
-      //   method:'POST',
-      //   header: {
-      //     "Content-Type": "application/x-www-form-urlencoded"
-      //   },
-      //   data:{
-      //     voucher:this.data.val,
-      //     userId:app.globalData.userId,
-      //     // userId:1,
-      //     list:JSON.stringify(app.globalData.commodity)
-      //   },
-      //   success:res=>{
-      //     console.log(res.data);
-      //   }
-      // })
+        })
+      }
     }
+
+
+   
   },
 
 

@@ -47,7 +47,7 @@
     bind:change="onChange"
     center
     clearable
-    label=""
+    label="输入数量:"
     placeholder="剩余{{card}}金豆"
     border="{{ false }}"
     use-button-slot

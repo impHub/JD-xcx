@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .container image {
+    width: 686rpx;
+    height: 686rpx;
+    background-color: #f9f9f9;
+  }
+  .canvas-box {
+    position: fixed;
+    top: 999999rpx;
+    left: 0;
+  }
+  
+.wrap{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  .pos image{
+    width: 100%;
+    height: 100%;
+    /* width: 30rpx;
+    height: 30rpx; */
+  }
+  .can{
+    /* position: relative;
+    z-index: -1;
+    opacity:0.5; */
+  }
+  .pos{
+    /* opacity:0.9; */
+    border-radius: 50%;
+    width: 100rpx;
+    height: 100rpx; 
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 998;
+  }
+  .pos2{
+    background-color: blue;
+    width: 100rpx;
+    height: 100rpx;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }

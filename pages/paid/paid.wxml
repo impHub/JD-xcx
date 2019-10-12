@@ -1,9 +1,8 @@
 <!-- pages/paid/paid.wxml -->
-<view class="">
+<view class="bg">
     <block wx:for="{{payArr}}" wx:key="{{index}}">
-        <view class="wrap">
-              <van-panel title="总价:￥{{item.orderPrice}}" desc="订单编号:{{item.orderId}}" status="已支付">
-            <view>
+       <!--  -->
+          <view class="wrap_m">
                 <block wx:for="{{item.list}}" wx:for-item="desc" wx:key="desc">
                     <van-card 
                     num="{{desc.productNum}}" 
@@ -12,13 +11,31 @@
                     thumb="{{desc.productImg}}" />
                 </block>
             </view>
+        <!--  -->
+        <view class="wrap">
+              <van-panel use-footer-slot
+              title="总价:￥{{item.orderPrice}}" 
+              desc="" 
+              status="已支付">
+
+                <!-- <view>订单编号:{{item.orderId}}</view> -->
+  <view slot="footer" class="slotW">
+      <view class="text">订单编号:{{item.orderId}}</view>
+    <!-- <van-button size="small">按钮</van-button> -->
+    <van-button bindtap='add' data-item="{{item}}" size="small" type="danger">查看物流</van-button>
+  </view>
+          
         </van-panel>
+
+     
         </view>
         <!--  -->
-        <van-steps
+        <!-- <van-steps
   steps="{{ steps }}"
   active="{{ item.orderStatus -1 }}"
-/>
+/> -->
     </block>
+
+ 
     
 </view>

@@ -4,6 +4,9 @@ console.log(app)
 const interfaces = require('./utils/urlconfig');
 App({
   onLaunch: function () {
+    wx.showLoading({
+      title:'加载中....'
+    })
     console.log(this.globalData,'hh')
     let appid = 'wx6eeb04b248b4152b',
         secret = '3db6adfd99a8f2d4f19e10b22a947db2';
@@ -42,12 +45,13 @@ App({
 
             this.globalData.openId = res.data.openid //返回openid
             this.globalData.userId = res.data.userid
+            this.globalData.userscale = res.data.userscale
             // 获取用户积分信息
             wx.request({
               url:interfaces.card,
               data:{userId:res.data.userid},
               success:res=>{
-                console.log(res.data.userVoucher);
+                console.log(res.data);
                 this.globalData.card = res.data.userVoucher;
               }
             })
@@ -121,5 +125,7 @@ App({
     userId:null,
     commodity:null,
     card:0,//积分
+    userscale:null,//用户等级,
+    wallet:''//钱包信息
   }
 })

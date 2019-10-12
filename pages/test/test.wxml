@@ -2,7 +2,10 @@
 <!--  -->
   <scroll-view class="nav_left" scroll-y>
     <block wx:for="{{navLeftItems}}">
-      <view class="nav_left_items {{curIndex == item.classificationId ? 'nav_left_item-active' : ''}}" data-index="{{index}}" bindtap="switchRightTab">
+      <view 
+      class="nav_left_items {{curIndex == item.classificationId ? 'nav_left_item-active' : ''}}" 
+      data-index="{{item.classificationId}}" 
+      bindtap="switchRightTab">
       {{item.classificationName}}
       </view>
     </block>

@@ -83,7 +83,8 @@
   /* components/infocell/infocell.wxss */
 .payWrap{
   background: #fff;
-  padding: 30rpx 20rpx;
+  /* padding: 30rpx 20rpx; */
+  padding: 10px 15px;
   border-top: 2rpx solid #e8e8ed;
   border-bottom: 2rpx solid #e8e8ed; 
   font-size: 28rpx;

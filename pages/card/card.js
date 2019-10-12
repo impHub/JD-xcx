@@ -47,7 +47,7 @@ Page({
         success:res=>{
           if(res.data.price == 0){
             wx.showToast({
-              title:'兑换码已失效',
+              title:res.data.msg,
               duration:2000,
               icon:"none"
             })
