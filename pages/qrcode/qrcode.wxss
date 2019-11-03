@@ -2,12 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
   }
   .container image {
-    width: 686rpx;
-    height: 686rpx;
+    /* width: 686rpx;
+    height: 686rpx; */
     background-color: #f9f9f9;
   }
   .canvas-box {
@@ -17,10 +17,11 @@
   }
   
 .wrap{
-    height: 80%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #108ee9;
   }
   
 
@@ -38,8 +39,8 @@
   .pos{
     /* opacity:0.9; */
     border-radius: 50%;
-    width: 100rpx;
-    height: 100rpx; 
+    width: 80rpx;
+    height: 80rpx; 
     position: absolute;
     left: 50%;
     top: 50%;
@@ -57,4 +58,16 @@
     right: 0;
     bottom: 0;
     margin: auto;
+  }
+
+  .container{
+    width: 650rpx;
+    height: 750rpx;
+    /* border: 1px solid black; */
+    border-radius: 10rpx;
+   background-color: #fff;
+    
+  }
+  .name{
+    margin-bottom: 30rpx;
   }

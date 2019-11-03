@@ -1,8 +1,12 @@
 <view class="wrap">
-<canvas class="can" style="width: 200px; height: 200px;" canvas-id="myQrcode">
+<view class="container">
+    <view class="name">{{userName}}</view>
+    <canvas class="can" style="width: 250px; height: 250px;" canvas-id="myQrcode">
     <cover-image class="pos" src="{{avatarUrl}}">
     </cover-image>
 </canvas>
+</view>
+
 
 </view>
 

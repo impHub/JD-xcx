@@ -39,12 +39,20 @@
   }
   .priceWrap{
     background: #fff;
-    padding: 20rpx
+    padding: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .priceWrap text{
+  .priceWrap .text{
     font-size: 36rpx;
     color: #e4393c;
     font-weight: 700;
+  }
+  .priceWrap text{
+    font-size: 30rpx;
+    color: #aaa;
+    font-weight: 500;
   }
   .btn_bar{
     position: fixed;
@@ -462,4 +470,8 @@
   .img_mg{
     margin: 0;
     padding: 0;
+  }
+  .priceWrap .text_else{
+    color: #e4393c;
+    font-weight: bold;
   }

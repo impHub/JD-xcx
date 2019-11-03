@@ -94,29 +94,13 @@ Page({
         url:interfaces.productionDetail,
         data:{productId:id},
         success:res=>{
+          res.data.total = 1;
           this.setData({
             arrid :id,
             partData:res.data,
             pageArr:res.data.category
           })
           console.log(res.data)
-
-
-          // // 循环遍历 
-          // res.data.forEach(data=>{
-          //   // console.log(data.baitiao)
-          //   // id相匹配时，改变数据
-          //   if(data.partData.id == options.id){
-          //     data.partData.select = true;
-          //     // console.log(data,'sa')
-          //     this.setData({
-          //       partData:data.partData,
-          //        baitiao:data.baitiao   
-          //     })
-          //     console.log(this.data.partData)
-          //   }
-          // })
-         
           wx.hideLoading();
         }
       })
@@ -179,12 +163,15 @@ Page({
     let deta = e.detail;
     // console.log(this.data.partData)
     let partData = this.data.partData;
+    console.log(partData)
     //把获取到的数量赋值
     partData.count = deta;
+    partData.total = deta;
     // 改变初始的parData
     this.setData({
       partData:partData
     })
+    console.log(this.data.partData)
     // this.setData()
   },
 
@@ -234,10 +221,6 @@ Page({
             let partData = this.data.partData;
             //单个商品的数量
             partData.total = this.data.partData.count;
-            // partData.select = true;
-            // console.log('不存在时',this.data.partData.count);
-            // let cartArray = [];
-            // console.log(cart,999,cartArray)
             cartArray.push(partData);
              //更新数据
              wx.setStorage({

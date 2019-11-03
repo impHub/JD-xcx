@@ -334,13 +334,16 @@ Page({
     const commodity = [];
     console.log(commodity[0]);
     commodity.push(app.globalData.commodity)
-    console.log(commodity.length)
+    console.log(commodity)
     // options.id == 7 表示从商品详情页跳转的
     if(options.id == 7){
       
       console.log(options.id)
       // console.log(commodity);
-      commodity[0].total = 1;
+      // commodity[0].total = app.globalData.commodity.total;
+      console.log(app.globalData.commodity);
+      let t = app.globalData.commodity;
+      commodity[0].total = t.total;
       commodity[0].isTouchMove = false;
 
       wx.request({

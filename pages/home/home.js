@@ -98,6 +98,15 @@ Page({
     })
 
   },
+// 轮播图跳转
+  imgAdd(e){
+      let id = e.currentTarget.dataset.id;
+      console.log(id,'imgadd',e);
+      wx.navigateTo({
+        //   前面时路径        id时传过去的变量 
+        url: "/pages/detail/detail?id=" + id
+      })
+  },
 
   //点击跳转到detail
   Detail(e) {

@@ -3,6 +3,14 @@
     margin-bottom: 20px;
     /* border: 2px solid; */
 }
+.wrap{
+  /* 最外层div设置100高度不能显示出超出的内容 */
+  /* height: 100%; */
+}
+.contant{
+  height: 100%;
+  margin-bottom: 100rpx;
+}
 
 .fixBar{
     box-sizing: border-box;
@@ -116,4 +124,7 @@
   }
 .van-field__input{
   font-size: 27rpx;
+}
+.mr{
+  margin-bottom: 150rpx;
 }

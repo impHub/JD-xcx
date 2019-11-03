@@ -12,7 +12,6 @@
                 <image mode="aspectFit" class="swiper-item" src="{{item}}" />
             </swiper-item>
         </block>
-        
         </swiper>
     </view>
     <!-- 商品信息 -->
@@ -21,9 +20,10 @@
             <text>{{partData.title}}</text>
         </view>
         <view class="priceWrap">
-            <text>￥{{partData.price}}</text>
+            <text class="text">￥{{partData.price}}</text>
+            <text wx:if="{{partData.inventory}}">库存:{{partData.inventory}}</text>
+            <text class="text_else" wx:else>已售罄</text>
         </view>
-
          <!-- infocell组件 支付  使用组件-->
     <!-- popView与组件里注册相对应 -->
         <infocell 
@@ -32,32 +32,16 @@
         title="客服" 
         desc='{{baitiaoSelectItem.desc}}'>
         </infocell>
-
     <!-- 已选  title对应infocell.js里的title 不填就为title默认值-->
-
-        <infocell 
+        <infocell
         bind:popView='popBuyView'
         title="已选"
         desc='{{partData.title}} * {{partData.count}}件'>
         </infocell>
-
     </view>
-
     <!-- 加入购物车 --> <!-- 数量图标    不能加回车-->
-    <!-- <view class="btn_bar" >
-        <view class="icon_cart" bindtap="add">
-        
-            <text class="badge" wx:if="{{badgeCount > 0}}">{{badgeCount}}</text>
-
-            <image src="/image/cart.png" />
-            <text>购物车</text>
-        </view>
-        <view class="cart_btn">
-            <button bindtap="addCart">加入购物车</button>
-        </view>
-    </view> -->
 <!-- 新加入购物车 -->
-    <van-goods-action>
+    <van-goods-action wx:if="{{partData.inventory}}">
   <van-goods-action-icon
     icon="goods-collect-o"
     text="首页"
@@ -79,15 +63,6 @@
   />
 </van-goods-action>
 
-    <!-- iou组件 遍历白条信息 -->
-    <!-- <iou 
-     bind:liou='liouView'
-    baitiao="{{baitiao}}" 
-    hideBaitiao="{{hidebaitiao}}">
-    
-    </iou> -->
-
-    
     <!-- buy组件 -->
     <van-transition 
     name="fade" 
@@ -106,23 +81,12 @@
     ></buy>
 
 </van-transition>
-    
     <!-- 图片 -->
         <!-- <view id='col'> -->
       <view class="weui-loadmore weui-loadmore_line" >
         <view class="weui-loadmore__tips weui-loadmore__tips_in-line" id="col">商品详情</view>
       </view>
-      <!-- <view class='particulars'>
-        {{detail[0].productParticulars}}
-      </view> -->
-      <!-- 利用widthFix让原图更加清晰 -->
-      <!-- <block wx:for="{{imgDetail}}">
-        <view>{{item}}</view>
-      </block> -->
-      <!-- <view class="img_mg"> -->
+
           <image id="imgs" wx:for="{{imgDetail}}" wx:key="index" src="{{item}}" data-index='{{index}}' bindtap='previewImage' class='fade_in' mode='widthFix'></image>
-      <!-- </view> -->
-      
-    <!-- </view> -->
-    <!--  -->
+
 </view>

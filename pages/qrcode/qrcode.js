@@ -15,7 +15,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl:''
+    avatarUrl:'',
+    userName:'九农一品'
   },
 
 
@@ -36,8 +37,8 @@ Page({
     console.log(app.globalData);
     let val = app.globalData.userInfo;
     drawQrcode({
-      width: 200,
-      height: 200,
+      width: 250,
+      height: 250,
       canvasId: 'myQrcode',
       text: `https://lixikeji.cn?userNumber=${options.id}`,
       image: {
@@ -53,7 +54,8 @@ Page({
       // src:'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKdbXO4hT7gTPHH1c1txzcQCIBwRnwQt3TPiab8KcWBdvrt7NSx9IYn5khJxxoicb8U9wHESxr81uGw/132'
     })
     this.setData({
-      avatarUrl:app.globalData.userInfo.avatarUrl
+      avatarUrl:app.globalData.userInfo.avatarUrl,
+      // userName:app.globalData.userInfo.nickName
     })
  
     // setTimeout(()=>{

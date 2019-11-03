@@ -1,4 +1,5 @@
-<view class="contant">
+<view class="wrap">
+
   <!-- 优惠活动 -->
   <view wx:if="{{offer.promoteMsg}}">
     <van-notice-bar scrollable="false" text="{{offer.promoteMsg}}" />
@@ -17,7 +18,9 @@
         </view>
       
     </block> -->
-  <!--  -->
+<!-- <swiper-item scroll-y="true" class="content-scroll"> -->
+  <view class="contant">
+    <!--  -->
   <block wx:for="{{cartArray}}" wx:key="{{index}}">
     <van-card 
     num="{{item.total}}" 
@@ -26,6 +29,7 @@
     title="{{item.title}}" 
     thumb="{{item.loopImgUrl[0]}}" />
   </block>
+ 
   <!--  -->
 
 
@@ -39,7 +43,8 @@
     <text class='desc'>{{offer.gift}}</text>
 </view>
 <!-- 积分 -->
-<view wx:if="{{card}}">
+<view class="sr">
+  <view class="mr" wx:if="{{card}}">
   <van-cell-group wx:if="{{cardKey}}">
   <van-field
     value="{{ sms }}"
@@ -56,11 +61,19 @@
   </van-field>
 </van-cell-group>
 
-<view class="payWrap" wx:else>
+<view class="payWrap mr" wx:else>
     <text class='title7'>已使用 :</text>
     <text class='desc'>{{val}}金豆</text>
 </view>
 </view>
+
+</view>
+ <!-- </swiper-item> -->
+</view>
+
+ 
+
+
 
 
 
@@ -86,4 +99,6 @@
       <button bindtap="Settlement">确认支付</button>
     </view>
   </view>
+ 
+
 </view>
