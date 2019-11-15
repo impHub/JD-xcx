@@ -232,3 +232,32 @@
     height: 100%;
     border-radius: 10rpx;
   }
+
+  .fui-notice:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    border-top: 1px solid #e2e2e2;
+}
+.fui-notice:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  border-top: 1px solid #e2e2e2;
+}
+.fui-notice {
+  height: auto;
+  font-size: 0.8rem;
+  background: #fff;
+  padding: 10rpx;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  
+}

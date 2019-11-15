@@ -19,15 +19,11 @@
     <!-- <view class="content-scroll"> -->
     <!-- 轮播图 -->
     <view class="indicator-wrap">
-      <swiper indicator-dots="{{indicatordots}}" vertical="{{vertical}}"
-       autoplay="{{interval}}" duration="{{duration}}" interval='{{interval}}'
-        circular="true" indicator-color="rgba(255,255,255,0.4)" indicator-active-color="rgba(255,255,255,0.9)"
-         style="width:100%;height:375rpx;">
+      <swiper indicator-dots="{{indicatordots}}" vertical="{{vertical}}" autoplay="{{interval}}" duration="{{duration}}" interval='{{interval}}' circular="true" indicator-color="rgba(255,255,255,0.4)" indicator-active-color="rgba(255,255,255,0.9)" style="width:100%;height:375rpx;">
         <block wx:for="{{swipers}}" wx:key="index">
           <swiper-item>
             <image wx:if="{{item.jump == 0?0:item.jump  }}" bind:tap="imgAdd" data-id="{{item.jump}}" mode="aspectFill" class="swiper-item" src="{{item.image}}" />
             <image wx:else data-id="{{item.id}}" mode="aspectFill" class="swiper-item" src="{{item.image}}" />
-
           </swiper-item>
         </block>
       </swiper>
@@ -41,6 +37,30 @@
         </view>
       </block>
     </view>
+    <!-- 公告 -->
+    <!-- <div class="fui-notice" style="background: #ffffff; border-color: #e2e2e2;" data-speed="4">
+      <div class="image">
+        <img src="https://zisunbao.oss-cn-hangzhou.aliyuncs.com/images/1/2017/09/acoFtG3c3ycGQF9yIDDotztuynUuD3.png" onerror="this.src='../addons/ewei_shopv2/static/images/hotdot.jpg'" />
+      </div>
+      <div class="icon">
+        <i class="icon icon-notification1" style="font-size: 0.7rem; color: #fd5454;"></i>
+      </div>
+      <div class="text" style="color: #666666;">
+        <ul style="margin-top: 0px;">
+          <li>
+            <a href="https://www.lixikeji.cn" style="color: #666666;" data-nocache="true">
+              服务会越来越好！
+            </a>
+          </li>
+          <li>
+            <a href="https://www.lixikeji.cn" style="color: #666666;" data-nocache="true">
+              农产品会越来越多！
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+    <!-- 公告 -->
     <!-- 掌上秒杀 -->
     <view class='page-margin'>
       <view class='page-row'>
@@ -83,7 +103,7 @@
         </block>
       </scroll-view>
     </view>
-     <!-- 上拉加载更多 -->
+    <!-- 上拉加载更多 -->
     <view class="wrap_c">
       <view class="g_conter">更多商品</view>
       <view class="xl_sx">
@@ -98,12 +118,10 @@
         </block>
       </view>
     </view>
-    
-      <view class='endview' wx:if='{{noData}}'>
-    <text>我是有底线的</text>
-  </view>
+    <view class='endview' wx:if='{{noData}}'>
+      <text>我是有底线的</text>
+    </view>
     <view wx:else class="loadmore loading endview">正在加载.....</view>
-    
     <!-- 会场分类 -->
     <!-- <block wx:for="{{pageRow}}" wx:for-item="page" wx:key="index">
       <view class="page-row" style="justify-content:center">
@@ -111,8 +129,6 @@
         mode="aspectFill"/>
       </view>
     </block> -->
-  </scroll-view> 
- 
+  </scroll-view>
   <!-- 上拉加载更多商品 -->
- 
 </view>
